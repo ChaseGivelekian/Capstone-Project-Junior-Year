@@ -1950,10 +1950,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3535550059297107083, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7515179700326241441, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
       propertyPath: m_Name
       value: MeleeEnemy
@@ -9852,10 +9848,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2073202991}
     m_Modifications:
-    - target: {fileID: 4724029211323272539, guid: 597a23fc00b3b29458006e038c74a39e, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6186692432016682953, guid: 597a23fc00b3b29458006e038c74a39e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.27
