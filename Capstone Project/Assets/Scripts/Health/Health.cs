@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Health : MonoBehaviour
 {
@@ -14,6 +13,9 @@ public class Health : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
+
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
 
     private void Awake()
     {
@@ -36,7 +38,13 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
-                GetComponent<PlayerMovement>().enabled = false;
+
+                //Deactivate all attached component classes
+                foreach (Behaviour component in components)
+                {
+                    component.enabled = false;
+                }
+
                 dead = true;
             }
         }
@@ -56,5 +64,9 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
         Physics2D.IgnoreLayerCollision(10, 11, false);
+    }
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 }
