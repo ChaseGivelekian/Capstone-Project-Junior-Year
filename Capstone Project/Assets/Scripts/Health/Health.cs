@@ -62,10 +62,10 @@ public class Health : MonoBehaviour
     }
     public void Respawn()
     {
-        dead = false;
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         anim.Play("Idle");
+        dead = false;
 
         //Deactivate all attached component classes
         foreach (Behaviour component in components)
