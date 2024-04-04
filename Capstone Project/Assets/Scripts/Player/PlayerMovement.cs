@@ -54,11 +54,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 body.gravityScale = 7;
             }
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
 
-                if (Input.GetKeyDown(KeyCode.Space) && isGrounded())
+                if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded())
                 {
                     SoundManager.instance.PlaySound(jumpSound);
                 }
