@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -48,7 +47,7 @@ public class SoundManager : MonoBehaviour
         currentVolume += change;
 
         //Check if we reached the maximum or minimum value
-        if (currentVolume > 1)
+        if (currentVolume > 1.01)
         {
             currentVolume = 0;
         }
