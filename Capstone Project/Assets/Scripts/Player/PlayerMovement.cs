@@ -31,8 +31,6 @@ public class PlayerMovement : MonoBehaviour
     private float wallJumpCooldown;
     private float horizontalInput;
 
-
-
     private void Awake()
     {
         //Gets references for rigidbody and animator objects
