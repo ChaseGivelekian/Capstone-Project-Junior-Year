@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0) && cooldownTimer > attackCooldown && playerMovement.canAttack())
+        if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && playerMovement.canAttack())
         {
             Attack();
         }
@@ -28,11 +28,11 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         SoundManager.instance.PlaySound(fireballSound);
-        anim.SetTrigger("attack");
+        anim.SetTrigger("ranged attack");
         cooldownTimer = 0;
 
-        // fireballs[FindFireball()].transform.position = firePoint.position;
-        // fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+        fireballs[FindFireball()].transform.position = firePoint.position;
+        fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
     }
     private int FindFireball()
     {

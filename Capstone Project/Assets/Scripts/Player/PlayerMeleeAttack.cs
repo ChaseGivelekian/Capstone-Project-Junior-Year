@@ -1,65 +1,36 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
-    [Header("Attack Parameters")]
-    [SerializeField] private float attackCooldown;
-    [SerializeField] private float range;
-    [SerializeField] private int damage;
+    public Animator anim;
+    [SerializeField] public Transform attackPoint;
+    [SerializeField] public float attackRange = .5f;
+    [SerializeField] public int attackDamage = 1;
+    public LayerMask enemyLayers;
 
-    [Header("Collider Parameters")]
-    [SerializeField] private float colliderDistance;
-
-    [SerializeField] private BoxCollider2D boxCollider;
-
-    [Header("Player Layer")]
-    [SerializeField] private LayerMask playerLayer;
-    private float cooldownTimer = Mathf.Infinity;
-
-    [Header("Attack Sound")]
-    [SerializeField] private AudioClip attackSound;
-
-    //References
-    private Animator anim;
-    private Health playerHealth;
-    private bool hit;
-
-    private void Awake()
-    {
-        anim = GetComponent<Animator>();
-    }
     private void Update()
     {
-        cooldownTimer += Time.deltaTime;
-
-        //Attack ony when player is in sight
-        if (PlayerInSight())
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (cooldownTimer >= attackCooldown && playerHealth.currentHealth > 0)
-            {
-                cooldownTimer = 0;
-                anim.SetTrigger("meleeAttack");
-                SoundManager.instance.PlaySound(attackSound);
-            }
+            Attack();
         }
     }
-    private bool PlayerInSight()
+    private void Attack()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-        new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, Vector2.left, 0, playerLayer);
+        anim.SetTrigger("melee attack");
 
-        if (hit.collider != null)
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
         {
-            playerHealth = hit.transform.GetComponent<Health>();
+            enemy.GetComponent<Health>().TakeDamage(attackDamage);
         }
-
-        return hit.collider != null;
     }
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
-        new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
+        if (attackPoint == null) return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
 

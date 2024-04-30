@@ -45,11 +45,11 @@ public class PlayerMovement : MonoBehaviour
         // Flip player when moving a different direction
         if (horizontalInput > .01f)
         {
-            transform.localScale = Vector3.one;
+            transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
         }
         else if (horizontalInput < -.01f)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f);
         }
 
         //Set animator parameters
@@ -144,6 +144,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public bool canAttack()
     {
-        return horizontalInput == 0 && isGrounded() && !onWall();
+        return horizontalInput == 0 && !onWall();
     }
 }
