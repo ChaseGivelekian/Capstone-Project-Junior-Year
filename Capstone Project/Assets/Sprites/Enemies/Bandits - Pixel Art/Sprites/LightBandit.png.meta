@@ -218,15 +218,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LightBandit_0
+      name: LightBandit Idle1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 208
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 14
+        y: 210
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -239,15 +239,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_1
+      name: LightBandit Idle2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 208
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 62
+        y: 210
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -260,15 +260,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_2
+      name: LightBandit Idle3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 208
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 110
+        y: 210
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -281,15 +281,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_3
+      name: LightBandit Idle4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 208
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 158
+        y: 210
+        width: 26
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,15 +302,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_4
+      name: LightBandit Combat-idle1
       rect:
         serializedVersion: 2
-        x: 192
-        y: 208
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 197
+        y: 210
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,15 +323,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_5
+      name: LightBandit Combat-idle2
       rect:
         serializedVersion: 2
-        x: 240
-        y: 208
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 245
+        y: 210
+        width: 33
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -344,15 +344,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_6
+      name: LightBandit Combat-idle3
       rect:
         serializedVersion: 2
-        x: 288
-        y: 208
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 293
+        y: 210
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -365,15 +365,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_7
+      name: LightBandit Combat-idle4
       rect:
         serializedVersion: 2
-        x: 336
-        y: 208
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 341
+        y: 210
+        width: 33
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -386,15 +386,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_8
+      name: LightBandit Running1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 160
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 14
+        y: 162
+        width: 25
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -407,15 +407,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_9
+      name: LightBandit Running2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 160
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 58
+        y: 163
+        width: 29
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -428,15 +428,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_10
+      name: LightBandit Running3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 160
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 105
+        y: 162
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -449,15 +449,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_11
+      name: LightBandit Running4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 160
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 158
+        y: 161
+        width: 25
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -470,15 +470,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_12
+      name: LightBandit Running5
       rect:
         serializedVersion: 2
-        x: 192
-        y: 160
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 209
+        y: 162
+        width: 20
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -491,15 +491,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_13
+      name: LightBandit Running6
       rect:
         serializedVersion: 2
-        x: 240
-        y: 160
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 247
+        y: 164
+        width: 31
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -512,15 +512,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_14
+      name: LightBandit Running7
       rect:
         serializedVersion: 2
-        x: 288
-        y: 160
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 294
+        y: 162
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -533,15 +533,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_15
+      name: LightBandit Running8
       rect:
         serializedVersion: 2
-        x: 336
-        y: 160
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 343
+        y: 162
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -554,15 +554,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_16
+      name: LightBandit Attack1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 112
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 12
+        y: 114
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -575,15 +575,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_17
+      name: LightBandit Attack2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 112
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 59
+        y: 114
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -596,15 +596,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_18
+      name: LightBandit Attack3
       rect:
         serializedVersion: 2
-        x: 96
-        y: 112
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 107
+        y: 114
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -617,15 +617,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_19
+      name: LightBandit Attack4
       rect:
         serializedVersion: 2
-        x: 144
-        y: 112
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 155
+        y: 114
+        width: 24
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -638,15 +638,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_20
+      name: LightBandit Attack5
       rect:
         serializedVersion: 2
         x: 192
-        y: 112
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        y: 114
+        width: 38
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -659,15 +659,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_21
+      name: LightBandit Attack6
       rect:
         serializedVersion: 2
-        x: 240
-        y: 112
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 242
+        y: 114
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -680,15 +680,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_22
+      name: LightBandit Attack7
       rect:
         serializedVersion: 2
-        x: 288
-        y: 112
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 293
+        y: 114
+        width: 33
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -701,15 +701,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_23
+      name: LightBandit Attack8
       rect:
         serializedVersion: 2
-        x: 336
-        y: 112
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 350
+        y: 114
+        width: 24
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -725,12 +725,12 @@ TextureImporter:
       name: LightBandit_24
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 4
+        y: 66
+        width: 39
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -746,12 +746,12 @@ TextureImporter:
       name: LightBandit_25
       rect:
         serializedVersion: 2
-        x: 48
-        y: 64
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 55
+        y: 66
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -767,12 +767,12 @@ TextureImporter:
       name: LightBandit_26
       rect:
         serializedVersion: 2
-        x: 96
-        y: 64
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 106
+        y: 66
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -788,12 +788,12 @@ TextureImporter:
       name: LightBandit_27
       rect:
         serializedVersion: 2
-        x: 144
-        y: 64
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 155
+        y: 66
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -809,12 +809,12 @@ TextureImporter:
       name: LightBandit_28
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 203
+        y: 66
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -830,12 +830,12 @@ TextureImporter:
       name: LightBandit_29
       rect:
         serializedVersion: 2
-        x: 240
-        y: 64
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 251
+        y: 66
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -851,12 +851,12 @@ TextureImporter:
       name: LightBandit_30
       rect:
         serializedVersion: 2
-        x: 288
-        y: 64
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 299
+        y: 66
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -872,12 +872,12 @@ TextureImporter:
       name: LightBandit_31
       rect:
         serializedVersion: 2
-        x: 336
-        y: 64
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 349
+        y: 66
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -893,12 +893,12 @@ TextureImporter:
       name: LightBandit_32
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 14
+        y: 18
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -914,12 +914,12 @@ TextureImporter:
       name: LightBandit_33
       rect:
         serializedVersion: 2
-        x: 48
-        y: 16
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 62
+        y: 18
+        width: 26
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -932,15 +932,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_34
+      name: LightBandit Jump
       rect:
         serializedVersion: 2
-        x: 96
-        y: 16
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 110
+        y: 18
+        width: 24
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -953,15 +953,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LightBandit_35
+      name: LightBandit Death
       rect:
         serializedVersion: 2
-        x: 144
-        y: 16
-        width: 48
-        height: 48
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 145
+        y: 18
+        width: 43
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -984,42 +984,42 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      LightBandit_0: 21300000
-      LightBandit_1: 21300002
-      LightBandit_10: 21300020
-      LightBandit_11: 21300022
-      LightBandit_12: 21300024
-      LightBandit_13: 21300026
-      LightBandit_14: 21300028
-      LightBandit_15: 21300030
-      LightBandit_16: 21300032
-      LightBandit_17: 21300034
-      LightBandit_18: 21300036
-      LightBandit_19: 21300038
-      LightBandit_2: 21300004
-      LightBandit_20: 21300040
-      LightBandit_21: 21300042
-      LightBandit_22: 21300044
-      LightBandit_23: 21300046
+      LightBandit Attack1: 21300032
+      LightBandit Attack2: 21300034
+      LightBandit Attack3: 21300036
+      LightBandit Attack4: 21300038
+      LightBandit Attack5: 21300040
+      LightBandit Attack6: 21300042
+      LightBandit Attack7: 21300044
+      LightBandit Attack8: 21300046
+      LightBandit Combat-idle1: 21300008
+      LightBandit Combat-idle2: 21300010
+      LightBandit Combat-idle3: 21300012
+      LightBandit Combat-idle4: 21300014
+      LightBandit Death: 21300070
+      LightBandit Idle1: 21300000
+      LightBandit Idle2: 21300002
+      LightBandit Idle3: 21300004
+      LightBandit Idle4: 21300006
+      LightBandit Jump: 21300068
+      LightBandit Running1: 21300016
+      LightBandit Running2: 21300018
+      LightBandit Running3: 21300020
+      LightBandit Running4: 21300022
+      LightBandit Running5: 21300024
+      LightBandit Running6: 21300026
+      LightBandit Running7: 21300028
+      LightBandit Running8: 21300030
       LightBandit_24: 21300048
       LightBandit_25: 21300050
       LightBandit_26: 21300052
       LightBandit_27: 21300054
       LightBandit_28: 21300056
       LightBandit_29: 21300058
-      LightBandit_3: 21300006
       LightBandit_30: 21300060
       LightBandit_31: 21300062
       LightBandit_32: 21300064
       LightBandit_33: 21300066
-      LightBandit_34: 21300068
-      LightBandit_35: 21300070
-      LightBandit_4: 21300008
-      LightBandit_5: 21300010
-      LightBandit_6: 21300012
-      LightBandit_7: 21300014
-      LightBandit_8: 21300016
-      LightBandit_9: 21300018
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
