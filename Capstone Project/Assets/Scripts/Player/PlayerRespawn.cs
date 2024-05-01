@@ -14,7 +14,6 @@ public class PlayerRespawn : MonoBehaviour
     }
     public void CheckRespawn()
     {
-        Debug.Log("this works");
         //Check if check point available
         if (currentCheckpoint == null)
         {
