@@ -42,6 +42,13 @@ public class Health : MonoBehaviour
         {
             if (!dead)
             {
+                // for (int i = (int)transform.position.y; i >= 3.82; i++)
+                // {
+                //     Debug.Log("this is working");
+                //     Vector3 temp = transform.position;
+                //     temp.y += .2f;
+                //     transform.position = temp;
+                // }
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
                 {
