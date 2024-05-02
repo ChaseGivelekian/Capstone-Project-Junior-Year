@@ -47,3 +47,5 @@ public class CameraFade : MonoBehaviour
         isFading = true;
     }
 }
+
+// do an on scene load for the fading to black
