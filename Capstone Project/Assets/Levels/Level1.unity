@@ -85554,6 +85554,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1114124938 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6361023830118692655, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+  m_PrefabInstance: {fileID: 7444186896818440550}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1114306947
 GameObject:
   m_ObjectHideFlags: 0
@@ -164219,6 +164224,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6361023830118692655, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1114124938}
+    - target: {fileID: 7400865976965652260, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
