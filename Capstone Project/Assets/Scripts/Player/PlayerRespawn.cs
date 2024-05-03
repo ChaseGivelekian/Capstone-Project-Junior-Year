@@ -3,14 +3,31 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound; //Sound that plays when getting a new checkpoint
+    [SerializeField] public Transform target;
     private Transform currentCheckpoint; //Stores the last checkpoint here
     private Health playerHealth;
     private UIManager uiManager;
+    private Animator anim;
 
     private void Awake()
     {
         playerHealth = GetComponent<Health>();
         uiManager = FindObjectOfType<UIManager>();
+        target.GetComponent<PlayerFloating>().enabled = false;
+        anim = GetComponent<Animator>();
+    }
+    private void Update()
+    {
+        bool triggerValue = anim.GetBool("die");
+        if (triggerValue)
+        {
+            target.GetComponent<PlayerFloating>().enabled = true;
+        }
+        else
+        {
+            target.GetComponent<BoxCollider2D>().enabled = true;
+            target.GetComponent<PlayerMovement>().enabled = true;
+        }
     }
     public void CheckRespawn()
     {
@@ -23,7 +40,6 @@ public class PlayerRespawn : MonoBehaviour
             return; //Don't execute the rest of this function
         }
 
-        new WaitForSeconds(10f);
         transform.position = currentCheckpoint.position; //Move player to checkpoint position
         playerHealth.Respawn(); //Restore player health and reset animation
 
