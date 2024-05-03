@@ -118503,7 +118503,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029539108, y: 3.9370787}
+  m_Offset: {x: -0.029539108, y: 4.1205835}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -118514,7 +118514,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 15.968945, y: 0.77602434}
+  m_Size: {x: 15.968945, y: 1.1430287}
   m_EdgeRadius: 0
 --- !u!1 &714970074
 GameObject:
@@ -163166,7 +163166,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 16.007757, y: 3.7332582}
+  m_Offset: {x: 16.007757, y: 3.9524431}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -163177,7 +163177,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16.00845, y: 1.3770962}
+  m_Size: {x: 16.00845, y: 1.8154659}
   m_EdgeRadius: 0
 --- !u!1 &1010889529
 GameObject:
@@ -333305,7 +333305,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 16.007757, y: 3.7332582}
+  m_Offset: {x: 16.007757, y: 3.9626377}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -333316,7 +333316,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16.00845, y: 1.3770962}
+  m_Size: {x: 16.00845, y: 1.835855}
   m_EdgeRadius: 0
 --- !u!1 &2090403719
 GameObject:
@@ -343119,14 +343119,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6361023830118692655, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7400865976965652260, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

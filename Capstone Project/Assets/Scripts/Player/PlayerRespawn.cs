@@ -22,11 +22,16 @@ public class PlayerRespawn : MonoBehaviour
         if (triggerValue)
         {
             target.GetComponent<PlayerFloating>().enabled = true;
+
         }
         else
         {
             target.GetComponent<BoxCollider2D>().enabled = true;
             target.GetComponent<PlayerMovement>().enabled = true;
+        }
+        if (transform.position.y >= 5.38)
+        {
+            CheckRespawn();
         }
     }
     public void CheckRespawn()
@@ -46,7 +51,6 @@ public class PlayerRespawn : MonoBehaviour
         //Move camera to checkpoint room (**for this to work the checkpoint objects have to be placed as a child of the room object)
         Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
     }
-
     //Activate checkpoints
     private void OnTriggerEnter2D(Collider2D collision)
     {

@@ -13,24 +13,25 @@ public class PlayerFloating : MonoBehaviour
         anim = GetComponent<Animator>();
 
     }
-    private void Update()
+    public void Update()
     {
-        target.GetComponent<BoxCollider2D>().enabled = false;
-        target.GetComponent<PlayerMovement>().enabled = false;
-        target.GetComponent<Rigidbody2D>().gravityScale = 0;
 
-        Vector2 targetPosition = new Vector2(target.position.x, 10);
-        transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, speed);
 
-        if (transform.position.y > 5.5)
+        if (transform.position.y >= 5.3)
         {
-            transform.position = new Vector2(target.position.x, 10);
-            Debug.Log("this works");
-            target.GetComponent<PlayerFloating>().enabled = false;
+            // transform.position = new Vector2(target.position.x, 10);
+            enabled = false;
         }
-    }
-    // IEnumerator Floating()
-    // {
+        else
+        {
+            target.GetComponent<BoxCollider2D>().enabled = false;
+            target.GetComponent<PlayerMovement>().enabled = false;
+            target.GetComponent<Rigidbody2D>().gravityScale = 0;
 
-    // }
+            // Vector2 targetPosition = new Vector2(target.position.x, 10);
+            // transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, speed);
+            transform.Translate(Vector3.up * (Time.deltaTime * 7));
+        }
+        Debug.Log("I hope this stops");
+    }
 }

@@ -12,10 +12,10 @@ public class PlayerMeleeAttack : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Attack();
+            MeleeAttack();
         }
     }
-    private void Attack()
+    private void MeleeAttack()
     {
         anim.SetTrigger("melee attack");
 
