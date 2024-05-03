@@ -1,9 +1,13 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerFloating : MonoBehaviour
 {
-    public float speed = .01f; // Speed at which the object moves up
+    // public float speed = .01f; // Speed at which the object moves up
     private Animator anim;
+    [SerializeField] public Transform target;
+    private float speed = 1f;
+    private Vector2 velocity = Vector2.zero;
 
     private void Awake()
     {
@@ -15,21 +19,32 @@ public class PlayerFloating : MonoBehaviour
         bool triggerValue = anim.GetBool("die");
         if (triggerValue)
         {
-            if (transform.position.y < 3.82f)
-            {
-                Vector3 temp = transform.position;
-                // while (transform.position.y < 3.82f)
-                // {
-                transform.Translate(Vector3.up * speed * Time.deltaTime);
-                //}
-                // while (temp.y < 3.82f)
-                // {
-                //     temp.y += .001f;
-                //     transform.position = temp;
-                //     Debug.Log(transform.position.y);
-                // }
-            }
+            target.GetComponent<BoxCollider2D>().enabled = false;
+            target.GetComponent<PlayerMovement>().enabled = false;
+            target.GetComponent<Rigidbody2D>().gravityScale = 0;
+
+            StartCoroutine(Floating());
+        }
+        else
+        {
+            target.GetComponent<BoxCollider2D>().enabled = true;
+            target.GetComponent<PlayerMovement>().enabled = true;
         }
     }
+    IEnumerator Floating()
+    {
+        Vector2 targetPosition = new Vector2(target.position.x, 10);
+        while (transform.position.y < targetPosition.y)
+        {
+            transform.position = Vector2.SmoothDamp(transform.position, targetPosition, ref velocity, speed);
+
+            if (transform.position.y > 9.75)
+            {
+                transform.position = new Vector2(target.position.x, 10);
+
+            }
+            yield return null;
+        }
+
+    }
 }
-// try the smooth damp from the camera controller script
