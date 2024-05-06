@@ -100478,7 +100478,7 @@ Transform:
   m_GameObject: {fileID: 479928436}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.18, y: -1.73, z: 0}
+  m_LocalPosition: {x: 8.13, y: -1.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -100558,7 +100558,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0020961761, y: 2.054631}
+  m_Offset: {x: -0.12383556, y: 2.054631}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -100569,7 +100569,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.37802315, y: 6.438518}
+  m_Size: {x: 0.12615967, y: 6.438518}
   m_EdgeRadius: 0
 --- !u!1 &480030497
 GameObject:
@@ -361103,13 +361103,13 @@ PolygonCollider2D:
       - {x: 10.8772545, y: -2.2568302}
       - {x: 10.947547, y: -2.4789627}
       - {x: 10.955609, y: -3.637497}
-      - {x: 8.474469, y: -3.6431804}
-      - {x: 8.490867, y: -3.5021653}
-      - {x: 8.321058, y: -3.4991102}
-      - {x: 8.295924, y: -3.3507533}
-      - {x: 8.1228, y: -3.3459525}
-      - {x: 8.12802, y: -3.1801672}
-      - {x: 8.000809, y: -3.1649303}
+      - {x: 8.621122, y: -3.650899}
+      - {x: 8.454204, y: -3.4269092}
+      - {x: 8.288254, y: -3.2636938}
+      - {x: 8.193653, y: -3.1674373}
+      - {x: 8.111222, y: -3.0854506}
+      - {x: 8.046976, y: -3.0103586}
+      - {x: 7.987301, y: -2.9430215}
       - {x: 7.960289, y: -2.9052746}
       - {x: 7.946655, y: -3.8536868}
       - {x: 8.506037, y: -3.8902688}
@@ -412686,11 +412686,11 @@ Transform:
   m_GameObject: {fileID: 1950711969}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.82, y: -1.73, z: 0}
+  m_LocalPosition: {x: 7.9800005, y: -1.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1985227539}
+  m_Father: {fileID: 1992301129}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &1950711971
 Rigidbody2D:
@@ -418942,7 +418942,6 @@ Transform:
   m_Children:
   - {fileID: 1478332752}
   - {fileID: 1992301129}
-  - {fileID: 1950711970}
   - {fileID: 2083280833}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -420491,6 +420490,7 @@ Transform:
   - {fileID: 1923058741}
   - {fileID: 1010550227}
   - {fileID: 782175351}
+  - {fileID: 1950711970}
   m_Father: {fileID: 1985227539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1992301130
