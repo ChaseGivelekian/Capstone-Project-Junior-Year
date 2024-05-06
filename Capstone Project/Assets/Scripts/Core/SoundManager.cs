@@ -8,7 +8,6 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
         soundSource = GetComponent<AudioSource>();
         musicSource = transform.GetChild(0).GetComponent<AudioSource>();
 

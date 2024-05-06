@@ -15,9 +15,10 @@ public class LoadingManager : MonoBehaviour
         }
         //Destroy duplicate gameobjects
         else if (instance != null && instance != this)
+        {
             Destroy(gameObject);
+        }
     }
-
     public void LoadCurrentLevel()
     {
         int currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
