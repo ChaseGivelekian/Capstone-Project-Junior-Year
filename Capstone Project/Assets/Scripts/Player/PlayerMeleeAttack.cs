@@ -9,6 +9,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] public float attackCooldown;
     public LayerMask enemyLayers;
     private float cooldownTimer = Mathf.Infinity;
+    public float value;
 
     private void Update()
     {
@@ -17,6 +18,8 @@ public class PlayerMeleeAttack : MonoBehaviour
             MeleeAttack();
         }
         cooldownTimer += Time.deltaTime;
+        value = GetComponent<PlayerAttack>().manaAmount;
+        Debug.Log(value);
     }
     private void MeleeAttack()
     {
@@ -28,6 +31,12 @@ public class PlayerMeleeAttack : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Health>().TakeDamage(attackDamage);
+
+            if (value < 100)
+            {
+                value += 10;
+                Debug.Log(value);
+            }
         }
     }
     private void OnDrawGizmosSelected()

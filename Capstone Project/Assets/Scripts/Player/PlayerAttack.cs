@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private AudioClip fireballSound;
+    [SerializeField] public float manaAmount;
 
     private Animator anim;
     private PlayerMovement playerMovement;
@@ -18,18 +19,26 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && playerMovement.canAttack())
+        // PlayerMeleeAttack playerMeleeAttack = GetComponent<PlayerMeleeAttack>();
+        // manaAmount = playerMeleeAttack.value;
+        if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && playerMovement.canAttack() && manaAmount >= 10)
         {
             Attack();
         }
 
         cooldownTimer += Time.deltaTime;
+
+        if (manaAmount < 20)
+        {
+            manaAmount += Time.deltaTime;
+        }
     }
     private void Attack()
     {
         SoundManager.instance.PlaySound(fireballSound);
         anim.SetTrigger("ranged attack");
         cooldownTimer = 0;
+        manaAmount -= 10;
 
         fireballs[FindFireball()].transform.position = firePoint.position;
         fireballs[FindFireball()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));

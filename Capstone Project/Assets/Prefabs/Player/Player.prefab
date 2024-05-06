@@ -218,6 +218,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   fireballSound: {fileID: 8300000, guid: 9b0f25c98f4e8d14591ac8b4e7501cc3, type: 3}
+  manaAmount: 100
 --- !u!95 &6832469174868900827
 Animator:
   serializedVersion: 5
@@ -294,6 +295,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
+  value: 0
 --- !u!114 &7400865976965652260
 MonoBehaviour:
   m_ObjectHideFlags: 0
