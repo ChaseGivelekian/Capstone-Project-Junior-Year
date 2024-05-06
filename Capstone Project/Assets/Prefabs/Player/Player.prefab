@@ -290,6 +290,7 @@ MonoBehaviour:
   attackPoint: {fileID: 4647368267910872267}
   attackRange: 0.5
   attackDamage: 1
+  attackCooldown: 0.5
   enemyLayers:
     serializedVersion: 2
     m_Bits: 512
