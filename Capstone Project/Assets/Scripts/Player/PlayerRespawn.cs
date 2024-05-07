@@ -22,7 +22,6 @@ public class PlayerRespawn : MonoBehaviour
         if (triggerValue)
         {
             target.GetComponent<PlayerFloating>().enabled = true;
-
         }
         else
         {

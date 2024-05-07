@@ -455868,10 +455868,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
-      propertyPath: manaAmount
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: fireballs.Array.data[0]
       value: 
       objectReference: {fileID: 1274507318}
@@ -455914,12 +455910,6 @@ PrefabInstance:
     - target: {fileID: 4762270510775166544, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5388589988221668013, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
-      propertyPath: maxMana
-      value: 100
-      propertyPath: attackRange
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6361023830118692655, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: m_LocalPosition.x
