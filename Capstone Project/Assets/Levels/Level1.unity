@@ -432212,6 +432212,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382f1157e56a3ee49a9602836c9e195f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalmanaBar: {fileID: 1516512189}
+  currentmanaBar: {fileID: 995283648}
 --- !u!1 &2042898829
 GameObject:
   m_ObjectHideFlags: 0
