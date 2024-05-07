@@ -18,7 +18,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             MeleeAttack();
         }
         cooldownTimer += Time.deltaTime;
-        value = GetComponent<PlayerAttack>().manaAmount;
+        // value = GetComponent<PlayerAttack>().manaAmount;
         Debug.Log(value);
     }
     private void MeleeAttack()
@@ -34,8 +34,10 @@ public class PlayerMeleeAttack : MonoBehaviour
 
             if (value < 100)
             {
-                value += 10;
-                Debug.Log(value);
+                // value += 10;
+                PlayerAttack playerAttack = GetComponent<PlayerAttack>();
+                playerAttack.ManaLevel(10);
+                // Debug.Log(value);
             }
         }
     }

@@ -19,6 +19,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
+        ManaLevel(0);
         // PlayerMeleeAttack playerMeleeAttack = GetComponent<PlayerMeleeAttack>();
         // manaAmount = playerMeleeAttack.value;
         if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && playerMovement.canAttack() && manaAmount >= 10)
@@ -28,6 +29,11 @@ public class PlayerAttack : MonoBehaviour
 
         cooldownTimer += Time.deltaTime;
 
+
+    }
+    public void ManaLevel(float value)
+    {
+        manaAmount += value;
         if (manaAmount < 20)
         {
             manaAmount += Time.deltaTime;
