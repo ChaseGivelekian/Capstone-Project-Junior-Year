@@ -7,6 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private AudioClip fireballSound;
     [SerializeField] public float manaAmount;
+    private float maxMana;
 
     private Animator anim;
     private PlayerMovement playerMovement;
@@ -16,6 +17,8 @@ public class PlayerAttack : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        maxMana = GetComponent<PlayerMeleeAttack>().maxMana;
+        manaAmount = maxMana;
     }
     private void Update()
     {

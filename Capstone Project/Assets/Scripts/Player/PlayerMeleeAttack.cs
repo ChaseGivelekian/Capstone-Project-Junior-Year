@@ -7,6 +7,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] public float attackRange = .5f;
     [SerializeField] public int attackDamage = 1;
     [SerializeField] public float attackCooldown;
+    [SerializeField] public float maxMana;
     public LayerMask enemyLayers;
     private float cooldownTimer = Mathf.Infinity;
     private float value;
@@ -31,7 +32,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         {
             enemy.GetComponent<Health>().TakeDamage(attackDamage);
 
-            if (value < 100)
+            if (value < maxMana)
             {
                 PlayerAttack playerAttack = GetComponent<PlayerAttack>();
                 playerAttack.ManaLevel(10);
