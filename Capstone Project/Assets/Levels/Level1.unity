@@ -455918,6 +455918,8 @@ PrefabInstance:
     - target: {fileID: 5388589988221668013, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: maxMana
       value: 100
+      propertyPath: attackRange
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6361023830118692655, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: m_LocalPosition.x
