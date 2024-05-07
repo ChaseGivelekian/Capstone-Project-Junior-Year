@@ -212108,7 +212108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -441, y: 258.99994}
+  m_AnchoredPosition: {x: -441, y: 280}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995283648
@@ -317075,7 +317075,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -441, y: 259}
+  m_AnchoredPosition: {x: -441, y: 280}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516512189
@@ -455868,6 +455868,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: manaAmount
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: fireballs.Array.data[0]
       value: 
       objectReference: {fileID: 1274507318}
@@ -455910,6 +455914,10 @@ PrefabInstance:
     - target: {fileID: 4762270510775166544, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5388589988221668013, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: maxMana
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6361023830118692655, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: m_LocalPosition.x
