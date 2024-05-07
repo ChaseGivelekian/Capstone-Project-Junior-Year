@@ -98246,6 +98246,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &467123185 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+  m_PrefabInstance: {fileID: 7444186896818440550}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31d612d3a4618b49bca0f3c68f54e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &467674505
 GameObject:
   m_ObjectHideFlags: 0
@@ -211976,7 +211987,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -424, y: 258.99994}
+  m_AnchoredPosition: {x: -444, y: 258.99994}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995283648
@@ -211999,7 +212010,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5e9c67439c777143855c6d13f29de52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d75b91df018ebd74aabee55e99c7dc70, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -316935,7 +316946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -424, y: 259}
+  m_AnchoredPosition: {x: -444, y: 259}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516512189
@@ -316958,7 +316969,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f5e9c67439c777143855c6d13f29de52, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d75b91df018ebd74aabee55e99c7dc70, type: 3}
   m_Type: 3
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -432212,6 +432223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382f1157e56a3ee49a9602836c9e195f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerAttack: {fileID: 467123185}
   totalmanaBar: {fileID: 1516512189}
   currentmanaBar: {fileID: 995283648}
 --- !u!1 &2042898829
@@ -455668,6 +455680,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: manaAmount
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: fireballs.Array.data[0]
       value: 

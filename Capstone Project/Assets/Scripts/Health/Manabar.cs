@@ -1,18 +1,21 @@
 using UnityEngine.UI;
 using UnityEngine;
-using System;
 
 public class Manabar : MonoBehaviour
 {
+    [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private Image totalmanaBar;
     [SerializeField] private Image currentmanaBar;
+    // private float value;
 
     private void Start()
     {
-        totalmanaBar.fillAmount = GetComponent<PlayerAttack>().manaAmount / 10;
+        // value = playerAttack.GetComponent<PlayerAttack>().manaAmount;
+        totalmanaBar.fillAmount = playerAttack.manaAmount / 10 / 10;
     }
     private void Update()
     {
-        currentmanaBar.fillAmount = GetComponent<PlayerAttack>().manaAmount / 10;
+        // value = playerAttack.GetComponent<PlayerAttack>().manaAmount;
+        currentmanaBar.fillAmount = playerAttack.manaAmount / 10 / 10;
     }
 }

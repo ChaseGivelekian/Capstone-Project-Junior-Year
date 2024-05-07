@@ -9,7 +9,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] public float attackCooldown;
     public LayerMask enemyLayers;
     private float cooldownTimer = Mathf.Infinity;
-    public float value;
+    private float value;
 
     private void Update()
     {
