@@ -128371,6 +128371,7 @@ RectTransform:
   m_Children:
   - {fileID: 1950147201}
   - {fileID: 1275571058}
+  - {fileID: 2042374874}
   - {fileID: 1792857818}
   - {fileID: 701718423}
   m_Father: {fileID: 140556771}
@@ -212107,7 +212108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -444, y: 258.99994}
+  m_AnchoredPosition: {x: -441, y: 258.99994}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &995283648
@@ -229195,7 +229196,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -424, y: 306}
+  m_AnchoredPosition: {x: -424, y: 383}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1080185160
@@ -317066,7 +317067,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -444, y: 259}
+  m_AnchoredPosition: {x: -441, y: 259}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1516512189
@@ -327137,7 +327138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -424, y: 306}
+  m_AnchoredPosition: {x: -424, y: 383}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1563514495
@@ -455801,10 +455802,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
-      propertyPath: manaAmount
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: fireballs.Array.data[0]
       value: 
