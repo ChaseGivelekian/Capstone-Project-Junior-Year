@@ -16812,8 +16812,8 @@ GameObject:
   m_Component:
   - component: {fileID: 81507904}
   - component: {fileID: 81507907}
-  - component: {fileID: 81507906}
   - component: {fileID: 81507905}
+  - component: {fileID: 81507908}
   m_Layer: 0
   m_Name: Door (end)
   m_TagString: Untagged
@@ -16863,21 +16863,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &81507906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81507903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbcc14e9c5224e449958076f0101517b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previousRoom: {fileID: 1992301129}
-  nextRoom: {fileID: 2083280833}
-  cam: {fileID: 519420033}
 --- !u!61 &81507907
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16910,7 +16895,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02786541, y: 1.6894519}
+  m_Offset: {x: 0.02786541, y: -0.2724824}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -16921,8 +16906,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.14095497, y: 7.1099553}
+  m_Size: {x: 0.14095497, y: 3.1860867}
   m_EdgeRadius: 0
+--- !u!114 &81507908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81507903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1bdaea4a25d8946b1ee22283f0016a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &81666569
 GameObject:
   m_ObjectHideFlags: 0
@@ -292823,6 +292820,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1408246427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6333273297613668480, guid: 597a23fc00b3b29458006e038c74a39e, type: 3}
+  m_PrefabInstance: {fileID: 1932364929}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1408246428 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6186692432016682953, guid: 597a23fc00b3b29458006e038c74a39e, type: 3}
+  m_PrefabInstance: {fileID: 1932364929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1408479066
 GameObject:
   m_ObjectHideFlags: 0
@@ -411501,11 +411508,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2083280833}
     m_Modifications:
     - target: {fileID: 6186692432016682953, guid: 597a23fc00b3b29458006e038c74a39e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.44986
+      value: 3.7698593
       objectReference: {fileID: 0}
     - target: {fileID: 6186692432016682953, guid: 597a23fc00b3b29458006e038c74a39e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -411546,6 +411553,10 @@ PrefabInstance:
     - target: {fileID: 6333273297613668480, guid: 597a23fc00b3b29458006e038c74a39e, type: 3}
       propertyPath: m_Name
       value: RangedEnemyHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 6333273297613668480, guid: 597a23fc00b3b29458006e038c74a39e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -440469,6 +440480,7 @@ Transform:
   - {fileID: 181120601}
   - {fileID: 1704615492}
   - {fileID: 81507904}
+  - {fileID: 1408246428}
   m_Father: {fileID: 1985227539}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2083280834
@@ -440484,7 +440496,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 0}
+  - {fileID: 1408246427}
 --- !u!1 &2085365552
 GameObject:
   m_ObjectHideFlags: 0
@@ -455968,4 +455980,3 @@ SceneRoots:
   - {fileID: 856729044}
   - {fileID: 1329492535}
   - {fileID: 1985227539}
-  - {fileID: 1932364929}
