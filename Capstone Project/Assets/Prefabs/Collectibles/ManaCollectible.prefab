@@ -143,3 +143,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9246972459072664b8014abfe5032e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaValue: 10
+  pickupSound: {fileID: 8300000, guid: 35001a8becc7e5a42a32132db8d8add8, type: 3}
