@@ -10,7 +10,7 @@ public class ManaCollectable : MonoBehaviour
         if (collision.tag == "Player")
         {
             SoundManager.instance.PlaySound(pickupSound);
-            collision.GetComponent<PlayerMeleeAttack>().maxMana += 10;
+            collision.GetComponent<PlayerMeleeAttack>().maxMana += manaValue;
             collision.GetComponent<PlayerAttack>().manaAmount = collision.GetComponent<PlayerMeleeAttack>().maxMana;
             gameObject.SetActive(false);
         }
