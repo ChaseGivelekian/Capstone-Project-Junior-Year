@@ -9,6 +9,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 431792903475637904, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 431792903475637904, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 431792903475637904, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 431792903475637904, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -48,9 +60,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1588233208601644748, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -910092549403018386, guid: d6b8c791d8089b44a9a8c5a7423bd180, type: 3}
+    - target: {fileID: 2869788754062696047, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: range
+      value: 1.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2869788754062696047, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: colliderDistance
+      value: 0.465
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535550059297107083, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7193449
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535550059297107083, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4613526
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535550059297107083, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.06877604
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535550059297107083, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.023263931
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535550059297107083, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3535550059297107083, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687883753911061696, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 62a63852673dd2f4b9b464a1606be2cb, type: 2}
     - target: {fileID: 7515179700326241441, guid: 91267b226deec784ab75e17bddb56faa, type: 3}
       propertyPath: m_Name
-      value: MeleeEnemy
+      value: Wizard man
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
