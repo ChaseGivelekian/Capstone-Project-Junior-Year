@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.398928, y: -2.4802172, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: -3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 20
+  currentHealth: 0
   iFramesDuration: 0
   numberOfFlashes: 0
   components: []
@@ -198,3 +199,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c04a3b0fbd690245aac483b14827b8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackCooldown: 1
+  range: 2.79
+  damage: 1
+  colliderDistance: 0.145
+  boxCollider: {fileID: 3383232191238343320}
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  attackSound: {fileID: 0}
