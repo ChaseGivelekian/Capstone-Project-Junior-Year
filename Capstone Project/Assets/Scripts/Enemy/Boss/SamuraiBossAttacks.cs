@@ -40,7 +40,7 @@ public class SamuraiBossAttacks : MonoBehaviour
             if (cooldownTimer >= attackCooldown && playerHealth.currentHealth > 0)
             {
                 cooldownTimer = 0;
-                anim.SetTrigger("meleeAttack");
+                anim.SetTrigger("meleeAttack1");
                 SoundManager.instance.PlaySound(attackSound);
             }
         }
