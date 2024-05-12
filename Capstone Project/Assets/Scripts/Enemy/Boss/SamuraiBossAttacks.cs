@@ -51,7 +51,6 @@ public class SamuraiBossAttacks : MonoBehaviour
                 SoundManager.instance.PlaySound(attackSound);
             }
         }
-
         if (enemyPatrol != null)
         {
             enemyPatrol.enabled = !PlayerInSight();
