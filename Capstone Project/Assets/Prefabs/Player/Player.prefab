@@ -276,6 +276,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointSound: {fileID: 8300000, guid: 9754eead5901eb6489a080345eb5d705, type: 3}
   target: {fileID: 6361023830118692655}
+  enemiesHealth: []
 --- !u!114 &5388589988221668013
 MonoBehaviour:
   m_ObjectHideFlags: 0

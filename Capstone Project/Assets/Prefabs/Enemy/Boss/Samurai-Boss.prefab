@@ -127,8 +127,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingHealth: 20
   currentHealth: 0
-  iFramesDuration: 0
-  numberOfFlashes: 0
+  iFramesDuration: 0.5
+  numberOfFlashes: 2
   components: []
   deathSound: {fileID: 8300000, guid: f54ac23f32445764cb8b25b0b52958e1, type: 3}
   hurtSound: {fileID: 8300000, guid: a8026796a10f2494f9b619defc979bff, type: 3}
