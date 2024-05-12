@@ -2,30 +2,24 @@ using UnityEngine;
 
 public class DoorToBoss : MonoBehaviour
 {
+    [SerializeField] private Transform door;
+    [SerializeField] private Transform player;
     [SerializeField] private Camera defaultCam;
     [SerializeField] private Camera bossCam;
 
-    private void Awake()
+    private void Update()
     {
-        defaultCam = Camera.main.GetComponent<Camera>();
-        bossCam = Camera.main.GetComponent<Camera>();
-        defaultCam.enabled = true;
-        bossCam.enabled = false;
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
+        player = player.GetComponent<Transform>();
+        door = door.GetComponent<Transform>();
+        if (player.position.x > door.position.x)
         {
-            if (collision.transform.position.x < transform.position.x)
-            {
-                defaultCam.enabled = false;
-                bossCam.enabled = true;
-            }
-            else
-            {
-                defaultCam.enabled = true;
-                bossCam.enabled = false;
-            }
+            defaultCam.enabled = false;
+            bossCam.enabled = true;
+        }
+        else
+        {
+            defaultCam.enabled = true;
+            bossCam.enabled = false;
         }
     }
 }
