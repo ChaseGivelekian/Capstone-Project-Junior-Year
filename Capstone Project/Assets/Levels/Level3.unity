@@ -830,7 +830,7 @@ Transform:
   m_GameObject: {fileID: 184590691}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.039997, y: -4.49, z: 0.086209685}
+  m_LocalPosition: {x: 6.609997, y: -5.63, z: 0.086209685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3263,7 +3263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &646021357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3617,7 +3617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &717885006
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4380,7 +4380,7 @@ Transform:
   m_GameObject: {fileID: 795200042}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.04, y: -4.49, z: 0.086209685}
+  m_LocalPosition: {x: 5.61, y: -5.63, z: 0.086209685}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6275,7 +6275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1189250385
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6405,7 +6405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1198849775
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8776,7 +8776,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1547913752
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12209,7 +12209,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &2073303479
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12931,10 +12931,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 1555333066}
     m_Modifications:
     - target: {fileID: 222962120832124551, guid: 366df1171121c9d479d13c856df783d9, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1211818031}
-    - target: {fileID: 3943248495917142872, guid: 366df1171121c9d479d13c856df783d9, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1211818031}

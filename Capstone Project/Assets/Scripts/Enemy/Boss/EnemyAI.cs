@@ -75,7 +75,7 @@ public class EnemyAI : MonoBehaviour
             if (direction.y > jumpNodeHeightRequirement)
             {
                 rb.AddForce(Vector2.up * speed * jumpModifier);
-                jumpCooldown = 1f;
+                jumpCooldown = 3f;
             }
         }
         else
