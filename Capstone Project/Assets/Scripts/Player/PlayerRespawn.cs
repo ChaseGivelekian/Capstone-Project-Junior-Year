@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound; //Sound that plays when getting a new checkpoint
     [SerializeField] public Transform target;
+    [SerializeField] public Health[] enemiesHealth;
     private Transform currentCheckpoint; //Stores the last checkpoint here
     private Health playerHealth;
     private UIManager uiManager;
@@ -44,6 +46,10 @@ public class PlayerRespawn : MonoBehaviour
             return; //Don't execute the rest of this function
         }
 
+        foreach (var enemy in enemiesHealth)
+        {
+            enemy.GetComponent<Health>().currentHealth = enemy.GetComponent<Health>().startingHealth;
+        }
         transform.position = currentCheckpoint.position; //Move player to checkpoint position
         playerHealth.Respawn(); //Restore player health and reset animation
 
