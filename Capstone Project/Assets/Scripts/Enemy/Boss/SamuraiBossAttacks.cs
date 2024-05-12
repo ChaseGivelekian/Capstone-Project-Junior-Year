@@ -18,11 +18,9 @@ public class SamuraiBossAttacks : MonoBehaviour
 
     [Header("Attack Sound")]
     [SerializeField] private AudioClip attackSound;
-
     //References
     private Animator anim;
     private Health playerHealth;
-
     private EnemyPatrol enemyPatrol;
 
     private void Awake()
@@ -40,7 +38,16 @@ public class SamuraiBossAttacks : MonoBehaviour
             if (cooldownTimer >= attackCooldown && playerHealth.currentHealth > 0)
             {
                 cooldownTimer = 0;
-                anim.SetTrigger("meleeAttack1");
+                double randomNum = Random.Range(0, 10);
+                if (randomNum >= 5)
+                {
+                    anim.SetTrigger("meleeAttack1");
+                }
+                else
+                {
+                    anim.SetTrigger("meleeAttack2");
+                }
+
                 SoundManager.instance.PlaySound(attackSound);
             }
         }

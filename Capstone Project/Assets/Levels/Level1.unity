@@ -461251,11 +461251,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29c9fce8ce193614b9d86bdadc523293, type: 3}
---- !u!1 &1988375876596223982 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2810216954067479285, guid: 8c309fc6a47d73d44913df775bd3f842, type: 3}
-  m_PrefabInstance: {fileID: 7366119747065482471}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2824571786838298386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1395515230150088717, guid: 8c309fc6a47d73d44913df775bd3f842, type: 3}
@@ -461379,14 +461374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MaxHealthCollectable
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3124469549638756964, guid: 8c309fc6a47d73d44913df775bd3f842, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2810216954067479285, guid: 8c309fc6a47d73d44913df775bd3f842, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8797780116921036899}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c309fc6a47d73d44913df775bd3f842, type: 3}
 --- !u!1001 &7444186896818440550
 PrefabInstance:
@@ -461489,20 +461480,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
---- !u!114 &8797780116921036899
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1988375876596223982}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7957cc9f7d0972a41ba81fe53fc583ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthValue: 0
-  pickupSound: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

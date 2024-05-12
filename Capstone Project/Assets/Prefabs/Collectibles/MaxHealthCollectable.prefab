@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1395515230150088717}
   - component: {fileID: 1923900713275223904}
   - component: {fileID: 1778400805253118772}
-  - component: {fileID: 3124469549638756964}
+  - component: {fileID: 1167160259643031091}
   m_Layer: 0
   m_Name: MaxHealthCollectable
   m_TagString: Untagged
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.59196, y: 8.851065}
   m_EdgeRadius: 0
---- !u!114 &3124469549638756964
+--- !u!114 &1167160259643031091
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,8 +140,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2810216954067479285}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9246972459072664b8014abfe5032e45, type: 3}
+  m_Script: {fileID: 11500000, guid: 7957cc9f7d0972a41ba81fe53fc583ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manaValue: 10
+  healthValue: 1
   pickupSound: {fileID: 8300000, guid: 35001a8becc7e5a42a32132db8d8add8, type: 3}
