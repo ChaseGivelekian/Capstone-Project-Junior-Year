@@ -16,4 +16,8 @@ public class FlowerDeath : MonoBehaviour
             anim.SetTrigger("flowerDeath");
         }
     }
+    private void Deactivate()
+    {
+        gameObject.SetActive(false);
+    }
 }
