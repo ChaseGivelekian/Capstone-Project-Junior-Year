@@ -11028,8 +11028,8 @@ Transform:
   - {fileID: 70606883}
   - {fileID: 641462032}
   - {fileID: 898530370}
-  - {fileID: 4921601686137915000}
   - {fileID: 321866865}
+  - {fileID: 4921601686137915000}
   m_Father: {fileID: 318499880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1555333067
@@ -11046,6 +11046,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 4921601686137914999}
+  - {fileID: 0}
 --- !u!1 &1582264588
 GameObject:
   m_ObjectHideFlags: 0

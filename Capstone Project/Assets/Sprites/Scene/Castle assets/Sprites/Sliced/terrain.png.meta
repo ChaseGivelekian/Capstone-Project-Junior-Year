@@ -364,7 +364,7 @@ TextureImporter:
         width: 160
         height: 41
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -382,10 +382,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 121
-        height: 96
+        width: 96
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -401,12 +401,12 @@ TextureImporter:
       name: terrain_2
       rect:
         serializedVersion: 2
-        x: 129
+        x: 8
         y: 96
-        width: 30
-        height: 16
+        width: 113
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -422,12 +422,12 @@ TextureImporter:
       name: terrain_3
       rect:
         serializedVersion: 2
-        x: 128
-        y: 6
-        width: 64
-        height: 58
+        x: 129
+        y: 14
+        width: 61
+        height: 23
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
