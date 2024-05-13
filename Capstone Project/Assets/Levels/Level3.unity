@@ -7304,7 +7304,7 @@ GameObject:
   - component: {fileID: 926583177}
   - component: {fileID: 926583176}
   m_Layer: 0
-  m_Name: Door (end)
+  m_Name: Door To Previous Room
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
