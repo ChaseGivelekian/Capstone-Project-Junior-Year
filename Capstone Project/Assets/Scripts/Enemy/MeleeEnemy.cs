@@ -21,7 +21,7 @@ public class MeleeEnemy : MonoBehaviour
 
     //References
     private Animator anim;
-    private Health playerHealth;
+    private PlayerHealth playerHealth;
 
     private EnemyPatrol enemyPatrol;
 
@@ -57,7 +57,7 @@ public class MeleeEnemy : MonoBehaviour
 
         if (hit.collider != null)
         {
-            playerHealth = hit.transform.GetComponent<Health>();
+            playerHealth = hit.transform.GetComponent<PlayerHealth>();
         }
 
         return hit.collider != null;
