@@ -23,6 +23,12 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
+        float persistantHealth = PlayerPrefs.GetFloat("persistantHealth", startingHealth);
+        if (persistantHealth != startingHealth)
+        {
+            startingHealth = persistantHealth;
+            currentHealth = startingHealth;
+        }
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();

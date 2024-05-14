@@ -7,9 +7,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-
     public void QuitGame()
     {
+        PlayerPrefs.DeleteKey("persistantHealth");
         Application.Quit(); //Quits the game (only works in build)
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false; //Exits play mode

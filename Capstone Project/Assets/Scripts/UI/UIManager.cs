@@ -40,6 +40,7 @@ public class UIManager : MonoBehaviour
     }
     public void Quit()
     {
+        PlayerPrefs.DeleteKey("persistantHealth");
         Application.Quit(); //Quits the game (only works in build)
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false; //Exits play mode
