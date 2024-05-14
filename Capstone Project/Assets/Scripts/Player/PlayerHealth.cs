@@ -24,7 +24,6 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         float persistantHealth = PlayerPrefs.GetFloat("persistantHealth", startingHealth);
-        Debug.Log(persistantHealth);
         if (persistantHealth != startingHealth)
         {
             startingHealth = persistantHealth;
