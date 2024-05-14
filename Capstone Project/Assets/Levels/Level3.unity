@@ -8689,8 +8689,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 467513562}
-  - {fileID: 249516222}
-  - {fileID: 1042914528}
   m_Father: {fileID: 2115102731}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1037155649
@@ -9600,11 +9598,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1158725335 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8672966480096270911, guid: 99097346443ce2a498d2b6541f6d5de5, type: 3}
-  m_PrefabInstance: {fileID: 1042914527}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1164258210
 GameObject:
   m_ObjectHideFlags: 0
@@ -12117,7 +12110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12548b9b3d7c1664ea9daf7ec7dc9927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
+  playerHealth: {fileID: 143105769}
   totalhealthBar: {fileID: 1621389594}
   currenthealthBar: {fileID: 733315512}
 --- !u!1 &1436680986
@@ -17082,11 +17075,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3086643778924777744, guid: 67b1fd1112829584caaac1ba8b3ca123, type: 3}
   m_PrefabInstance: {fileID: 2014642265}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2014957737 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8672966480096270911, guid: 99097346443ce2a498d2b6541f6d5de5, type: 3}
-  m_PrefabInstance: {fileID: 249516221}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2024684329
 GameObject:
   m_ObjectHideFlags: 0
@@ -18314,8 +18302,8 @@ Transform:
   - {fileID: 208513178}
   - {fileID: 1623696988}
   - {fileID: 1057104446}
-  - {fileID: 1158725335}
-  - {fileID: 2014957737}
+  - {fileID: 1042914528}
+  - {fileID: 249516222}
   m_Father: {fileID: 318499880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2115102732
