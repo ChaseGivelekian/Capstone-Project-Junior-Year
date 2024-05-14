@@ -1024,6 +1024,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+--- !u!114 &143105769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 41623701756557409, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+  m_PrefabInstance: {fileID: 143105768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5e2e006cf92874196ae1ab2c76658f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &148267395
 GameObject:
   m_ObjectHideFlags: 0
@@ -1622,6 +1633,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99097346443ce2a498d2b6541f6d5de5, type: 3}
+--- !u!4 &249516222 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8672966480096270911, guid: 99097346443ce2a498d2b6541f6d5de5, type: 3}
+  m_PrefabInstance: {fileID: 249516221}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &271495094
 GameObject:
   m_ObjectHideFlags: 0
@@ -5088,7 +5104,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2115102731}
+    m_TransformParent: {fileID: 1021535703}
     m_Modifications:
     - target: {fileID: 441963408202961886, guid: 640e2e8a1f47c9649a8ed608eda633a3, type: 3}
       propertyPath: damage
@@ -7878,6 +7894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463cc7fe022eae94083a55e10a98c505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 143105769}
 --- !u!50 &926583177
 Rigidbody2D:
   serializedVersion: 4
@@ -8642,6 +8659,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1021535702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021535703}
+  m_Layer: 0
+  m_Name: Traps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021535703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021535702}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 467513562}
+  - {fileID: 249516222}
+  - {fileID: 1042914528}
+  m_Father: {fileID: 2115102731}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1037155649
 GameObject:
   m_ObjectHideFlags: 0
@@ -8827,6 +8878,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99097346443ce2a498d2b6541f6d5de5, type: 3}
+--- !u!4 &1042914528 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8672966480096270911, guid: 99097346443ce2a498d2b6541f6d5de5, type: 3}
+  m_PrefabInstance: {fileID: 1042914527}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1045682309
 GameObject:
   m_ObjectHideFlags: 0
@@ -10112,17 +10168,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0517688}
   m_EdgeRadius: 0
---- !u!114 &1211818025 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5634112451569294013, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
-  m_PrefabInstance: {fileID: 143105768}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c9f8fa8a662de4e839b344e82d1412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1211818027 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5388589988221668013, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
@@ -12072,7 +12117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12548b9b3d7c1664ea9daf7ec7dc9927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 1211818025}
+  playerHealth: {fileID: 0}
   totalhealthBar: {fileID: 1621389594}
   currenthealthBar: {fileID: 733315512}
 --- !u!1 &1436680986
@@ -18265,9 +18310,9 @@ Transform:
   m_Children:
   - {fileID: 1605659283}
   - {fileID: 1912157993}
+  - {fileID: 1021535703}
   - {fileID: 208513178}
   - {fileID: 1623696988}
-  - {fileID: 467513562}
   - {fileID: 1057104446}
   - {fileID: 1158725335}
   - {fileID: 2014957737}

@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     [Header("Health")]
     [SerializeField] public float startingHealth;
@@ -23,6 +23,13 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
+        float persistantHealth = PlayerPrefs.GetFloat("persistantHealth", startingHealth);
+        Debug.Log(persistantHealth);
+        if (persistantHealth != startingHealth)
+        {
+            startingHealth = persistantHealth;
+            currentHealth = startingHealth;
+        }
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();

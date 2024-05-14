@@ -20,7 +20,7 @@ public class MonkBossAttacks : MonoBehaviour
     [SerializeField] private AudioClip attackSound;
     //References
     private Animator anim;
-    private Health playerHealth;
+    private PlayerHealth playerHealth;
     private EnemyPatrol enemyPatrol;
 
     private void Awake()
@@ -63,7 +63,7 @@ public class MonkBossAttacks : MonoBehaviour
 
         if (hit.collider != null)
         {
-            playerHealth = hit.transform.GetComponent<Health>();
+            playerHealth = hit.transform.GetComponent<PlayerHealth>();
         }
 
         return hit.collider != null;
