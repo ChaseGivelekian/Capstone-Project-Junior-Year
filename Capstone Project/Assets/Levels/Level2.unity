@@ -10494,6 +10494,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: enemiesHealth.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: enemiesHealth.Array.data[0]
+      value: 
+      objectReference: {fileID: 2021788689}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
