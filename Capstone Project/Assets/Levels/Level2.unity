@@ -2496,7 +2496,7 @@ GameObject:
   - component: {fileID: 493494450}
   - component: {fileID: 493494449}
   - component: {fileID: 493494448}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -6425,7 +6425,7 @@ GameObject:
   - component: {fileID: 1271332085}
   - component: {fileID: 1271332084}
   - component: {fileID: 1271332083}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
