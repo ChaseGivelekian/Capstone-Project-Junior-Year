@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private GameObject[] fireballs;
     [SerializeField] private AudioClip fireballSound;
     public float manaAmount;
-    private float maxMana;
+    public float maxMana;
 
     private Animator anim;
     private PlayerMovement playerMovement;
@@ -22,7 +22,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Update()
     {
-        ManaLevel(0);
+        ManaLevel(0, 0);
         if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && playerMovement.canAttack() && manaAmount >= 10)
         {
             Attack();
@@ -30,9 +30,13 @@ public class PlayerAttack : MonoBehaviour
 
         cooldownTimer += Time.deltaTime;
     }
-    public void ManaLevel(float value)
+    public void ManaLevel(float value, float resetMana)
     {
         manaAmount += value;
+        if (resetMana != 0)
+        {
+            manaAmount = resetMana;
+        }
         if (manaAmount < 20)
         {
             manaAmount += Time.deltaTime;

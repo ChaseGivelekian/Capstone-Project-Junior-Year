@@ -68,6 +68,9 @@ public class PlayerHealth : MonoBehaviour
     }
     public void Respawn()
     {
+        PlayerAttack playerAttack = GetComponent<PlayerAttack>();
+        float maxManaLevel = GetComponent<PlayerAttack>().maxMana;
+        playerAttack.ManaLevel(0, maxManaLevel);
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         anim.Play("Idle");
