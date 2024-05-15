@@ -48,7 +48,7 @@ public class Health : MonoBehaviour
                     component.enabled = false;
                 }
 
-                anim.SetBool("grounded", true);
+                // anim.SetBool("grounded", true);
                 anim.SetTrigger("die");
 
                 dead = true;
