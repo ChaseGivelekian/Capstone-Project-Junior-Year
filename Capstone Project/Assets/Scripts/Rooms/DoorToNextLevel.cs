@@ -3,13 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class DoorToNextLevel : MonoBehaviour
 {
-    [SerializeField] private Health player;
+    [SerializeField] private PlayerHealth player;
     private float persistantHealth;
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            persistantHealth = player.GetComponent<Health>().startingHealth;
+            persistantHealth = player.GetComponent<PlayerHealth>().startingHealth;
             PlayerPrefs.SetFloat("persistantHealth", persistantHealth);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

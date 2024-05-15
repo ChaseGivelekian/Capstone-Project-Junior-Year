@@ -17,7 +17,7 @@ public class Firetrap : MonoBehaviour
     private bool triggered; //when the trap gets triggered
     private bool active; //when the trap is active and can hurt the player
 
-    private Health playerHealth;
+    private PlayerHealth playerHealth;
 
     private void Awake()
     {
@@ -35,13 +35,13 @@ public class Firetrap : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            playerHealth = collision.GetComponent<Health>();
+            playerHealth = collision.GetComponent<PlayerHealth>();
 
             if (!triggered)
                 StartCoroutine(ActivateFiretrap());
 
             if (active)
-                collision.GetComponent<Health>().TakeDamage(damage);
+                collision.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

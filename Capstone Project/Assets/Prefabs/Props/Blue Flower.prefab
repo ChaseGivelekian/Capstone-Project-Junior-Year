@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5858755549261474604}
   - component: {fileID: 8555317645150004984}
   - component: {fileID: 2863728393630829770}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blue Flower
-  m_TagString: Untagged
+  m_TagString: Flower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

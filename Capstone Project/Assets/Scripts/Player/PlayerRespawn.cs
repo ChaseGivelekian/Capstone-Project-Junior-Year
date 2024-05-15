@@ -7,13 +7,13 @@ public class PlayerRespawn : MonoBehaviour
     [SerializeField] public Transform target;
     [SerializeField] public Health[] enemiesHealth;
     private Transform currentCheckpoint; //Stores the last checkpoint here
-    private Health playerHealth;
+    private PlayerHealth playerHealth;
     private UIManager uiManager;
     private Animator anim;
 
     private void Awake()
     {
-        playerHealth = GetComponent<Health>();
+        playerHealth = GetComponent<PlayerHealth>();
         uiManager = FindObjectOfType<UIManager>();
         target.GetComponent<PlayerFloating>().enabled = false;
         anim = GetComponent<Animator>();

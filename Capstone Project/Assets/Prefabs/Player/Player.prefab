@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6861710363697445993}
   - component: {fileID: 7228036943513066340}
   - component: {fileID: 8889480053513245236}
+  - component: {fileID: 41623701756557409}
   - component: {fileID: 498748673151100612}
   - component: {fileID: 193310611196196585}
   - component: {fileID: 6832469174868900827}
-  - component: {fileID: 5634112451569294013}
   - component: {fileID: 6642989218059336365}
   - component: {fileID: 5388589988221668013}
   - component: {fileID: 7400865976965652260}
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 117365107
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300008, guid: f2ed27d6c1c3ccc48959bcca269d88f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -167,6 +167,28 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &41623701756557409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762270510775166544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5e2e006cf92874196ae1ab2c76658f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 3
+  currentHealth: 0
+  iFramesDuration: 0.5
+  numberOfFlashes: 2
+  components:
+  - {fileID: 193310611196196585}
+  - {fileID: 498748673151100612}
+  - {fileID: 5388589988221668013}
+  deathSound: {fileID: 8300000, guid: f54ac23f32445764cb8b25b0b52958e1, type: 3}
+  hurtSound: {fileID: 8300000, guid: a8026796a10f2494f9b619defc979bff, type: 3}
 --- !u!114 &498748673151100612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,28 +262,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5634112451569294013
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4762270510775166544}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7c9f8fa8a662de4e839b344e82d1412, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startingHealth: 3
-  currentHealth: 0
-  iFramesDuration: 0.5
-  numberOfFlashes: 2
-  components:
-  - {fileID: 193310611196196585}
-  - {fileID: 498748673151100612}
-  - {fileID: 5388589988221668013}
-  deathSound: {fileID: 8300000, guid: f54ac23f32445764cb8b25b0b52958e1, type: 3}
-  hurtSound: {fileID: 8300000, guid: a8026796a10f2494f9b619defc979bff, type: 3}
 --- !u!114 &6642989218059336365
 MonoBehaviour:
   m_ObjectHideFlags: 0

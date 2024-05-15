@@ -23,7 +23,7 @@ public class PlayerAttack : MonoBehaviour
     private void Update()
     {
         ManaLevel(0);
-        if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && playerMovement.canAttack() && playerMovement.isGrounded() && manaAmount >= 10)
+        if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && playerMovement.canAttack() && manaAmount >= 10)
         {
             Attack();
         }

@@ -10,8 +10,8 @@ public class MaxHealthCollectable : MonoBehaviour
         if (collision.tag == "Player")
         {
             SoundManager.instance.PlaySound(pickupSound);
-            collision.GetComponent<Health>().startingHealth += 1;
-            collision.GetComponent<Health>().currentHealth = collision.GetComponent<Health>().startingHealth;
+            collision.GetComponent<PlayerHealth>().startingHealth += 1;
+            collision.GetComponent<PlayerHealth>().currentHealth = collision.GetComponent<PlayerHealth>().startingHealth;
             gameObject.SetActive(false);
         }
     }
