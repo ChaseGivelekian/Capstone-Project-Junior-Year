@@ -44,7 +44,7 @@ public class PlayerHealth : MonoBehaviour
             StartCoroutine(Invunerability());
             SoundManager.instance.PlaySound(hurtSound);
         }
-        else
+        else if (currentHealth <= 0)
         {
             if (!dead)
             {
