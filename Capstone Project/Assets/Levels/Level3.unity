@@ -13080,7 +13080,7 @@ GameObject:
   - component: {fileID: 1586890119}
   - component: {fileID: 1586890117}
   - component: {fileID: 1586890120}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -13595,7 +13595,7 @@ GameObject:
   - component: {fileID: 1623696991}
   - component: {fileID: 1623696989}
   - component: {fileID: 1623696992}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -17473,6 +17473,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1374271908056210259, guid: 8be0daf85149c2a4da33df02fd244dc4, type: 3}
   m_PrefabInstance: {fileID: 2044285963}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2045873861
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1048980995832611265, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_Name
+      value: Yellow Flower
+      objectReference: {fileID: 0}
+    - target: {fileID: 1048980995832611265, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3075643
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.8881359
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2746379179781112846, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ea8c060a9087eb34e80cb7ac854bcef2, type: 3}
 --- !u!1 &2061834529
 GameObject:
   m_ObjectHideFlags: 0
@@ -18800,3 +18861,4 @@ SceneRoots:
   - {fileID: 752555398}
   - {fileID: 318499880}
   - {fileID: 224328948}
+  - {fileID: 2045873861}
