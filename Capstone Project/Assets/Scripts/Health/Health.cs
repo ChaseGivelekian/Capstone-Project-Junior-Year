@@ -36,6 +36,7 @@ public class Health : MonoBehaviour
         {
             anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
+            // transform.Translate(Vector2.left * transform.localScale.x, transform.position)
             SoundManager.instance.PlaySound(hurtSound);
         }
         else
