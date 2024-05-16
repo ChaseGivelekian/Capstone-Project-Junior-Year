@@ -15785,7 +15785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 456}
+  m_AnchoredPosition: {x: 0, y: 387}
   m_SizeDelta: {x: 1000, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1734958618
@@ -15800,6 +15800,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f7d76cd63172d640b8645f645cc1eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  door: {fileID: 1623696988}
+  player: {fileID: 1211818031}
+  bossHealth: {fileID: 4921601686137915007}
+  bossName: {fileID: 1734958621}
 --- !u!114 &1734958619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15863,7 +15867,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PLACEHOLDER NAME
+  m_Text: Akuma Of The Blood Oath
 --- !u!222 &1734958622
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -16097,7 +16101,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 271}
+  m_AnchoredPosition: {x: -58, y: 187}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1774871830
@@ -16486,7 +16490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: 270.99994}
+  m_AnchoredPosition: {x: -58.00005, y: 186.99991}
   m_SizeDelta: {x: 939.128, y: 126.687}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1833206907
@@ -20227,7 +20231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8676529456811555907, guid: 366df1171121c9d479d13c856df783d9, type: 3}
       propertyPath: attackCooldown
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
