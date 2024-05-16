@@ -8,11 +8,12 @@ public class BossHealthbar : MonoBehaviour
     [SerializeField] private Health bossHealth;
     [SerializeField] private Image totalhealthBar;
     [SerializeField] private Image currenthealthBar;
+    [SerializeField] private float value;
 
     private void Update()
     {
-        totalhealthBar.fillAmount = bossHealth.startingHealth / 20;
-        currenthealthBar.fillAmount = bossHealth.currentHealth / 20;
+        totalhealthBar.fillAmount = bossHealth.startingHealth / value;
+        currenthealthBar.fillAmount = bossHealth.currentHealth / value;
 
         player = player.GetComponent<Transform>();
         door = door.GetComponent<Transform>();
