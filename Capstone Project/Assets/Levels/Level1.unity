@@ -310431,6 +310431,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7868396717841338368, guid: 069075987b5d61f459b73729b179e9d5, type: 3}
   m_PrefabInstance: {fileID: 180308075}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1491709883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2842943340690739639, guid: 069075987b5d61f459b73729b179e9d5, type: 3}
+  m_PrefabInstance: {fileID: 180308075}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7c9f8fa8a662de4e839b344e82d1412, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1491794623
 GameObject:
   m_ObjectHideFlags: 0
@@ -454864,7 +454875,7 @@ PrefabInstance:
     - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: enemiesHealth.Array.data[9]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1491709883}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
