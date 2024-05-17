@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerRespawn : MonoBehaviour
+public class PlayerRespawn1 : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound; //Sound that plays when getting a new checkpoint
     [SerializeField] public Transform target;
@@ -23,21 +23,20 @@ public class PlayerRespawn : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("i shouldn't see this");
-        bool triggerValue = anim.GetBool("die");
-        if (triggerValue)
-        {
-            target.GetComponent<PlayerFloating>().enabled = true;
-        }
-        else
-        {
-            target.GetComponent<BoxCollider2D>().enabled = true;
-            target.GetComponent<PlayerMovement>().enabled = true;
-        }
-        if (transform.position.y >= 5.38)
-        {
-            CheckRespawn();
-        }
+        // bool triggerValue = anim.GetBool("die");
+        // if (triggerValue)
+        // {
+        //     target.GetComponent<PlayerFloating>().enabled = true;
+        // }
+        // else
+        // {
+        //     target.GetComponent<BoxCollider2D>().enabled = true;
+        //     target.GetComponent<PlayerMovement>().enabled = true;
+        // }
+        // if (transform.position.y >= 5.38)
+        // {
+        //     CheckRespawn();
+        // }
 
     }
     public void CheckRespawn()
@@ -66,7 +65,7 @@ public class PlayerRespawn : MonoBehaviour
             if (doorToBoss.GetComponent<DoorToBoss>().defaultCam.enabled == true)
             {
                 Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
-                Debug.Log("main cam is active");
+                Debug.Log("does this happen");
             }
             else
             {

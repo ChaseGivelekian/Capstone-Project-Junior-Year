@@ -1032,6 +1032,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: doorToBoss
       value: 
       objectReference: {fileID: 1623696992}
@@ -1050,14 +1054,17 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4762270510775166544, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 1211818039}
   m_SourcePrefab: {fileID: 100100000, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
 --- !u!114 &143105769 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 41623701756557409, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
   m_PrefabInstance: {fileID: 143105768}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1189233253}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec5e2e006cf92874196ae1ab2c76658f, type: 3}
@@ -10420,6 +10427,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2048199457590159578, guid: 640e2e8a1f47c9649a8ed608eda633a3, type: 3}
   m_PrefabInstance: {fileID: 1179126831}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1189233253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4762270510775166544, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+  m_PrefabInstance: {fileID: 143105768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1189250384
 GameObject:
   m_ObjectHideFlags: 0
@@ -10815,7 +10827,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5388589988221668013, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
   m_PrefabInstance: {fileID: 143105768}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1189233253}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7600077d2ff16ac47ab4dc1d2d7139eb, type: 3}
@@ -10826,7 +10838,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 193310611196196585, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
   m_PrefabInstance: {fileID: 143105768}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1189233253}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b31d612d3a4618b49bca0f3c68f54e53, type: 3}
@@ -10837,6 +10849,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6361023830118692655, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
   m_PrefabInstance: {fileID: 143105768}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1211818039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189233253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac9d36529ad08a4f91e505c09a71122, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  checkpointSound: {fileID: 8300000, guid: 9754eead5901eb6489a080345eb5d705, type: 3}
+  target: {fileID: 1211818031}
+  enemiesHealth:
+  - {fileID: 4921601686137915007}
+  CameraController: {fileID: 468735025}
+  doorToBoss: {fileID: 1623696992}
 --- !u!1 &1218988812
 GameObject:
   m_ObjectHideFlags: 0
