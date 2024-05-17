@@ -35,7 +35,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             if (value < maxMana)
             {
                 PlayerAttack playerAttack = GetComponent<PlayerAttack>();
-                playerAttack.ManaLevel(2.5f, 0);
+                playerAttack.ManaLevel(5, 0);
             }
         }
     }

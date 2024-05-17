@@ -9,6 +9,8 @@ public class PlayerRespawn : MonoBehaviour
     private PlayerHealth playerHealth;
     private UIManager uiManager;
     private Animator anim;
+    public CameraController CameraController;
+    public DoorToBoss doorToBoss;
 
     private void Awake()
     {
@@ -16,6 +18,8 @@ public class PlayerRespawn : MonoBehaviour
         uiManager = FindObjectOfType<UIManager>();
         target.GetComponent<PlayerFloating>().enabled = false;
         anim = GetComponent<Animator>();
+        CameraController CameraController = Camera.main.GetComponent<CameraController>();
+        // doorToBoss = doorToBoss.GetComponent<DoorToBoss>().bossCam;
     }
     private void Update()
     {
@@ -33,6 +37,7 @@ public class PlayerRespawn : MonoBehaviour
         {
             CheckRespawn();
         }
+
     }
     public void CheckRespawn()
     {
@@ -53,7 +58,18 @@ public class PlayerRespawn : MonoBehaviour
         playerHealth.Respawn(); //Restore player health and reset animation
 
         //Move camera to checkpoint room (**for this to work the checkpoint objects have to be placed as a child of the room object)
-        Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
+        // Debug.Log(CameraController);
+
+        if (doorToBoss.GetComponent<DoorToBoss>().bossCam.enabled == false)
+        {
+            Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
+            Debug.Log("does this happen");
+        }
+        else
+        {
+            Debug.Log("boss cam is active");
+            return;
+        }
     }
     //Activate checkpoints
     private void OnTriggerEnter2D(Collider2D collision)

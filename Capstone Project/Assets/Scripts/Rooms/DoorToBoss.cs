@@ -4,8 +4,8 @@ public class DoorToBoss : MonoBehaviour
 {
     [SerializeField] private Transform door;
     [SerializeField] private Transform player;
-    [SerializeField] private Camera defaultCam;
-    [SerializeField] private Camera bossCam;
+    [SerializeField] public Camera defaultCam;
+    [SerializeField] public Camera bossCam;
 
     private void Update()
     {
