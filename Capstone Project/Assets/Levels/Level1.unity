@@ -454438,6 +454438,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
+      propertyPath: CameraController
+      value: 
+      objectReference: {fileID: 519420033}
+    - target: {fileID: 6642989218059336365, guid: 70d7f3ffa442f494eaf911080f37ebc4, type: 3}
       propertyPath: enemiesHealth.Array.size
       value: 10
       objectReference: {fileID: 0}

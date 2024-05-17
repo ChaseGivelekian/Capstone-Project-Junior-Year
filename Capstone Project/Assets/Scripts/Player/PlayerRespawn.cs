@@ -60,16 +60,24 @@ public class PlayerRespawn : MonoBehaviour
         //Move camera to checkpoint room (**for this to work the checkpoint objects have to be placed as a child of the room object)
         // Debug.Log(CameraController);
 
-        if (doorToBoss.GetComponent<DoorToBoss>().bossCam.enabled == false)
+        if (doorToBoss != null)
         {
-            Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
-            Debug.Log("does this happen");
+            if (doorToBoss.GetComponent<DoorToBoss>().defaultCam.enabled == true)
+            {
+                Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
+                Debug.Log("does this happen");
+            }
+            else
+            {
+                Debug.Log("boss cam is active");
+                return;
+            }
         }
         else
         {
-            Debug.Log("boss cam is active");
-            return;
+            Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
         }
+
     }
     //Activate checkpoints
     private void OnTriggerEnter2D(Collider2D collision)
