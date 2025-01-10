@@ -1,10 +1,11 @@
+using Core;
 using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
     [SerializeField] private AudioClip checkpointSound; //Sound that plays when getting a new checkpoint
     [SerializeField] public Transform target;
-    [SerializeField] public Health[] enemiesHealth;
+    [SerializeField] public Health.Health[] enemiesHealth;
     private Transform currentCheckpoint; //Stores the last checkpoint here
     private PlayerHealth playerHealth;
     private UIManager uiManager;
@@ -53,7 +54,7 @@ public class PlayerRespawn : MonoBehaviour
 
         foreach (var enemy in enemiesHealth)
         {
-            enemy.GetComponent<Health>().currentHealth = enemy.GetComponent<Health>().startingHealth;
+            enemy.GetComponent<Health.Health>().currentHealth = enemy.GetComponent<Health.Health>().startingHealth;
         }
         transform.position = currentCheckpoint.position; //Move player to checkpoint position
         playerHealth.Respawn(); //Restore player health and reset animation
@@ -86,7 +87,7 @@ public class PlayerRespawn : MonoBehaviour
         if (collision.gameObject.tag == "Checkpoint")
         {
             currentCheckpoint = collision.transform; //Store the checkpoint that we activated as the current one
-            SoundManager.instance.PlaySound(checkpointSound);
+            SoundManager.Instance.PlaySound(checkpointSound);
             collision.GetComponent<Collider2D>().enabled = false; //Deactivate checkpoint collider
             collision.GetComponent<Animator>().SetTrigger("appear"); //Trigger checkpoint animation
         }

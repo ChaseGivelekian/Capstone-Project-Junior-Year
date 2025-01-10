@@ -1,15 +1,18 @@
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Healthbar : MonoBehaviour
+namespace Health
 {
-    [SerializeField] private PlayerHealth playerHealth;
-    [SerializeField] private Image totalhealthBar;
-    [SerializeField] private Image currenthealthBar;
-
-    private void Update()
+    public class Healthbar : MonoBehaviour
     {
-        totalhealthBar.fillAmount = playerHealth.startingHealth / 10;
-        currenthealthBar.fillAmount = playerHealth.currentHealth / 10;
+        [SerializeField] private PlayerHealth playerHealth;
+        [SerializeField] private Image totalhealthBar;
+        [SerializeField] private Image currenthealthBar;
+
+        private void Update()
+        {
+            totalhealthBar.fillAmount = playerHealth.startingHealth / 10;
+            currenthealthBar.fillAmount = playerHealth.currentHealth / 10;
+        }
     }
 }

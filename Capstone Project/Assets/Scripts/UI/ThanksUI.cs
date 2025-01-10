@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class ThanksUI : MonoBehaviour
 {
-    [SerializeField] private Health bossHealth;
+    [SerializeField] private Health.Health bossHealth;
     [SerializeField] private Text thanksUI;
 
     void Update()

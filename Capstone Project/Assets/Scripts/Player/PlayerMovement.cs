@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -95,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         //If coyote counter is 0 or less and not on the wall and don't have any extra jumps don't do anything
         if (coyoteCounter < 0 && !onWall() && jumpCounter <= 0) return;
 
-        SoundManager.instance.PlaySound(jumpSound);
+        SoundManager.Instance.PlaySound(jumpSound);
 
         if (onWall())
         {

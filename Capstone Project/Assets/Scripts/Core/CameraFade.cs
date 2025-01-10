@@ -1,50 +1,49 @@
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class CameraFade : MonoBehaviour
+namespace Core
 {
-    [SerializeField] public Image fadeImage;
-    [SerializeField] public float fadeDuration = 1f;
-    private bool isFading = false;
-    private float fadeTimer = 0f;
-
-    private void Start()
+    public class CameraFade : MonoBehaviour
     {
-        fadeImage.gameObject.SetActive(true);
-        fadeImage.color = Color.black;
-        StartFadeIn();
-    }
+        [SerializeField] public Image fadeImage;
+        [SerializeField] public float fadeDuration = 1f;
+        private bool _isFading;
+        private float _fadeTimer;
 
-    private void Update()
-    {
-        if (isFading)
+        private void Start()
         {
-            fadeTimer += Time.deltaTime;
-            float alpha = Mathf.Clamp01(fadeTimer / fadeDuration);
+            fadeImage.gameObject.SetActive(true);
+            fadeImage.color = Color.black;
+            StartFadeIn();
+        }
+
+        private void Update()
+        {
+            if (!_isFading) return;
+            _fadeTimer += Time.deltaTime;
+            var alpha = Mathf.Clamp01(_fadeTimer / fadeDuration);
 
             fadeImage.color = new Color(0f, 0f, 0f, alpha);
 
-            if (fadeTimer >= fadeDuration)
-            {
-                isFading = false;
-                fadeImage.gameObject.SetActive(false);
-            }
+            if (!(_fadeTimer >= fadeDuration)) return;
+            _isFading = false;
+            fadeImage.gameObject.SetActive(false);
         }
-    }
 
-    public void StartFadeIn()
-    {
-        fadeImage.gameObject.SetActive(true);
-        fadeTimer = 0f;
-        isFading = true;
-    }
+        private void StartFadeIn()
+        {
+            fadeImage.gameObject.SetActive(true);
+            _fadeTimer = 0f;
+            _isFading = true;
+        }
 
-    public void StartFadeOut()
-    {
-        fadeImage.gameObject.SetActive(true);
-        fadeImage.color = new Color(0f, 0f, 0f, 0f);
-        fadeTimer = 0f;
-        isFading = true;
+        public void StartFadeOut()
+        {
+            fadeImage.gameObject.SetActive(true);
+            fadeImage.color = new Color(0f, 0f, 0f, 0f);
+            _fadeTimer = 0f;
+            _isFading = true;
+        }
     }
 }
 

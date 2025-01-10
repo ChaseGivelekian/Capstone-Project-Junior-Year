@@ -1,15 +1,17 @@
+using Core;
 using UnityEngine;
 
-public class ManaCollectable : MonoBehaviour
+namespace Health
 {
-    [SerializeField] private float manaValue;
-    [SerializeField] private AudioClip pickupSound;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class ManaCollectable : MonoBehaviour
     {
-        if (collision.tag == "Player")
+        [SerializeField] private float manaValue;
+        [SerializeField] private AudioClip pickupSound;
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            SoundManager.instance.PlaySound(pickupSound);
+            if (!collision.CompareTag("Player")) return;
+            SoundManager.Instance.PlaySound(pickupSound);
             collision.GetComponent<PlayerMeleeAttack>().maxMana += manaValue;
             collision.GetComponent<PlayerAttack>().manaAmount = collision.GetComponent<PlayerMeleeAttack>().maxMana;
             gameObject.SetActive(false);

@@ -1,15 +1,17 @@
+using Core;
 using UnityEngine;
 
-public class MaxHealthCollectable : MonoBehaviour
+namespace Health
 {
-    [SerializeField] private float healthValue;
-    [SerializeField] private AudioClip pickupSound;
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class MaxHealthCollectable : MonoBehaviour
     {
-        if (collision.tag == "Player")
+        [SerializeField] private float healthValue;
+        [SerializeField] private AudioClip pickupSound;
+
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            SoundManager.instance.PlaySound(pickupSound);
+            if (!collision.CompareTag("Player")) return;
+            SoundManager.Instance.PlaySound(pickupSound);
             collision.GetComponent<PlayerHealth>().startingHealth += 1;
             collision.GetComponent<PlayerHealth>().currentHealth = collision.GetComponent<PlayerHealth>().startingHealth;
             gameObject.SetActive(false);

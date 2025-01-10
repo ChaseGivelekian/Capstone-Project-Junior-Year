@@ -1,32 +1,35 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LoadingManager : MonoBehaviour
+namespace Core
 {
-    public static LoadingManager instance { get; private set; }
+    public class LoadingManager : MonoBehaviour
+    {
+        private static LoadingManager Instance { get; set; }
 
-    private void Awake()
-    {
-        //Keep this object even when we go to new scene
-        if (instance == null)
+        private void Awake()
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            //Keep this object even when we go to new scene
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            //Destroy duplicate gameobjects
+            else if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
         }
-        //Destroy duplicate gameobjects
-        else if (instance != null && instance != this)
+        public void LoadCurrentLevel()
         {
-            Destroy(gameObject);
+            var currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
+            SceneManager.LoadScene(currentLevel);
+            Time.timeScale = 1;
         }
-    }
-    public void LoadCurrentLevel()
-    {
-        int currentLevel = PlayerPrefs.GetInt("currentLevel", 1);
-        SceneManager.LoadScene(currentLevel);
-        Time.timeScale = 1;
-    }
-    public void Restart()
-    {
-        //SceneManager.LoadScene(currentLevel);
+        public void Restart()
+        {
+            //SceneManager.LoadScene(currentLevel);
+        }
     }
 }

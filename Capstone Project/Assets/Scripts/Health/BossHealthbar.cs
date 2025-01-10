@@ -1,32 +1,43 @@
-using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BossHealthbar : MonoBehaviour
+namespace Health
 {
-    [SerializeField] private Transform door;
-    [SerializeField] private Transform player;
-    [SerializeField] private Health bossHealth;
-    [SerializeField] private Image totalhealthBar;
-    [SerializeField] private Image currenthealthBar;
-    [SerializeField] private float value;
-
-    private void Update()
+    public class BossHealthbar : MonoBehaviour
     {
-        totalhealthBar.fillAmount = bossHealth.startingHealth / value;
-        currenthealthBar.fillAmount = bossHealth.currentHealth / value;
+        [SerializeField] private Transform door;
+        [SerializeField] private Transform player;
+        [SerializeField] private Health bossHealth;
+        [SerializeField] private Image totalhealthBar;
+        [SerializeField] private Image currenthealthBar;
+        [SerializeField] private float value;
+        private Transform _transform;
+        private Transform _transform1;
 
-        player = player.GetComponent<Transform>();
-        door = door.GetComponent<Transform>();
-
-        if (bossHealth.currentHealth <= 0 || player.position.x <= door.position.x)
+        private void Awake()
         {
-            totalhealthBar.enabled = false;
-            currenthealthBar.enabled = false;
+            _transform1 = door.GetComponent<Transform>();
+            _transform = player.GetComponent<Transform>();
         }
-        else
+
+        private void Update()
         {
-            totalhealthBar.enabled = true;
-            currenthealthBar.enabled = true;
+            totalhealthBar.fillAmount = bossHealth.startingHealth / value;
+            currenthealthBar.fillAmount = bossHealth.currentHealth / value;
+
+            player = _transform;
+            door = _transform1;
+
+            if (bossHealth.currentHealth <= 0 || player.position.x <= door.position.x)
+            {
+                totalhealthBar.enabled = false;
+                currenthealthBar.enabled = false;
+            }
+            else
+            {
+                totalhealthBar.enabled = true;
+                currenthealthBar.enabled = true;
+            }
         }
     }
 }

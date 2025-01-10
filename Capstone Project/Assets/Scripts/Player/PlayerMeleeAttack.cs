@@ -30,7 +30,7 @@ public class PlayerMeleeAttack : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Health>().TakeDamage(attackDamage);
+            enemy.GetComponent<Health.Health>().TakeDamage(attackDamage);
 
             if (value < maxMana)
             {

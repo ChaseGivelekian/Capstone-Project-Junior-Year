@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,7 +38,7 @@ public class SelectionArrow : MonoBehaviour
 
         if (_change != 0)
         {
-            SoundManager.instance.PlaySound(changeSound);
+            SoundManager.Instance.PlaySound(changeSound);
         }
 
         if (currentPosition < 0)
@@ -54,7 +55,7 @@ public class SelectionArrow : MonoBehaviour
     }
     private void Interact()
     {
-        SoundManager.instance.PlaySound(interactSound);
+        SoundManager.Instance.PlaySound(interactSound);
 
         //Access the button component on each option and call it's function
         options[currentPosition].GetComponent<Button>().onClick.Invoke();

@@ -1,4 +1,5 @@
 using System.Collections;
+using Core;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -42,7 +43,7 @@ public class PlayerHealth : MonoBehaviour
         {
             anim.SetTrigger("hurt");
             StartCoroutine(Invunerability());
-            SoundManager.instance.PlaySound(hurtSound);
+            SoundManager.Instance.PlaySound(hurtSound);
         }
         else if (currentHealth <= 0)
         {
@@ -58,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
                 anim.SetTrigger("die");
 
                 dead = true;
-                SoundManager.instance.PlaySound(deathSound);
+                SoundManager.Instance.PlaySound(deathSound);
             }
         }
     }

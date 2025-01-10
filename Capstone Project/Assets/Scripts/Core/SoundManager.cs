@@ -1,65 +1,68 @@
 using UnityEngine;
 
-public class SoundManager : MonoBehaviour
+namespace Core
 {
-    public static SoundManager instance { get; private set; }
-    private AudioSource soundSource;
-    private AudioSource musicSource;
-
-    private void Awake()
+    public class SoundManager : MonoBehaviour
     {
-        soundSource = GetComponent<AudioSource>();
-        musicSource = transform.GetChild(0).GetComponent<AudioSource>();
+        public static SoundManager Instance { get; private set; }
+        private AudioSource _soundSource;
+        private AudioSource _musicSource;
 
-        //Keep this object even when we go to new scene
-        if (instance == null)
+        private void Awake()
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            _soundSource = GetComponent<AudioSource>();
+            _musicSource = transform.GetChild(0).GetComponent<AudioSource>();
+
+            //Keep this object even when we go to new scene
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            //Destroy duplicate game objects
+            else if (Instance != null && Instance != this)
+            {
+                Destroy(gameObject);
+            }
+
+            //Assign initial volumes
+            ChangeMusicVolume(0);
+            ChangeSoundVolume(0);
         }
-        //Destroy duplicate game objects
-        else if (instance != null && instance != this)
+        public void PlaySound(AudioClip sound)
         {
-            Destroy(gameObject);
+            _soundSource.PlayOneShot(sound);
         }
-
-        //Assign initial volumes
-        ChangeMusicVolume(0);
-        ChangeSoundVolume(0);
-    }
-    public void PlaySound(AudioClip _sound)
-    {
-        soundSource.PlayOneShot(_sound);
-    }
-    public void ChangeSoundVolume(float _change)
-    {
-        ChangeSourceVolume(1, "soundVolume", _change, soundSource);
-    }
-    public void ChangeMusicVolume(float _change)
-    {
-        ChangeSourceVolume(.3f, "musicVolume", _change, musicSource);
-    }
-    private void ChangeSourceVolume(float baseVolume, string volumeName, float change, AudioSource source)
-    {
-        //Get initial value of volume and change it
-        float currentVolume = PlayerPrefs.GetFloat(volumeName, 1);
-        currentVolume += change;
-
-        //Check if we reached the maximum or minimum value
-        if (currentVolume > 1.01)
+        public void ChangeSoundVolume(float change)
         {
-            currentVolume = 0;
+            ChangeSourceVolume(1, "soundVolume", change, _soundSource);
         }
-        else if (currentVolume < 0)
+        public void ChangeMusicVolume(float change)
         {
-            currentVolume = 1;
+            ChangeSourceVolume(.3f, "musicVolume", change, _musicSource);
         }
+        private static void ChangeSourceVolume(float baseVolume, string volumeName, float change, AudioSource source)
+        {
+            //Get initial value of volume and change it
+            var currentVolume = PlayerPrefs.GetFloat(volumeName, 1);
+            currentVolume += change;
 
-        //Assign final value
-        float finalVolume = currentVolume * baseVolume;
-        source.volume = finalVolume;
+            //Check if we reached the maximum or minimum value
+            if (currentVolume > 1.01)
+            {
+                currentVolume = 0;
+            }
+            else if (currentVolume < 0)
+            {
+                currentVolume = 1;
+            }
 
-        //Save final value to player prefs
-        PlayerPrefs.SetFloat(volumeName, currentVolume);
+            //Assign final value
+            var finalVolume = currentVolume * baseVolume;
+            source.volume = finalVolume;
+
+            //Save final value to player prefs
+            PlayerPrefs.SetFloat(volumeName, currentVolume);
+        }
     }
 }

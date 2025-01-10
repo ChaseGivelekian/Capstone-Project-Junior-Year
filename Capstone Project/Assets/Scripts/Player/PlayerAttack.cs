@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -44,7 +45,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private void Attack()
     {
-        SoundManager.instance.PlaySound(fireballSound);
+        SoundManager.Instance.PlaySound(fireballSound);
         anim.SetTrigger("ranged attack");
         cooldownTimer = 0;
         manaAmount -= 10;

@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
@@ -41,7 +42,7 @@ public class MeleeEnemy : MonoBehaviour
             {
                 cooldownTimer = 0;
                 anim.SetTrigger("meleeAttack");
-                SoundManager.instance.PlaySound(attackSound);
+                SoundManager.Instance.PlaySound(attackSound);
             }
         }
 

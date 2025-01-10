@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -27,7 +28,7 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
-        SoundManager.instance.PlaySound(gameOverSound);
+        SoundManager.Instance.PlaySound(gameOverSound);
     }
     //Game over functions
     public void Restart()
@@ -66,11 +67,11 @@ public class UIManager : MonoBehaviour
     }
     public void SoundVolume()
     {
-        SoundManager.instance.ChangeSoundVolume(.1f);
+        SoundManager.Instance.ChangeSoundVolume(.1f);
     }
     public void MusicVolume()
     {
-        SoundManager.instance.ChangeMusicVolume(.1f);
+        SoundManager.Instance.ChangeMusicVolume(.1f);
     }
     #endregion
 }

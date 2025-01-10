@@ -5,7 +5,7 @@ public class BossNameUI : MonoBehaviour
 {
     [SerializeField] private Transform door;
     [SerializeField] private Transform player;
-    [SerializeField] private Health bossHealth;
+    [SerializeField] private Health.Health bossHealth;
     [SerializeField] private Text bossName;
 
     private void Update()

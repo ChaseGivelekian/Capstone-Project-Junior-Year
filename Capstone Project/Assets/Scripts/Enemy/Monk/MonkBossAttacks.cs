@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class MonkBossAttacks : MonoBehaviour
@@ -48,7 +49,7 @@ public class MonkBossAttacks : MonoBehaviour
                     anim.SetTrigger("meleeAttack2");
                 }
 
-                SoundManager.instance.PlaySound(attackSound);
+                SoundManager.Instance.PlaySound(attackSound);
             }
         }
         if (enemyPatrol != null)

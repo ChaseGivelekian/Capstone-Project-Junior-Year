@@ -1,3 +1,4 @@
+using Core;
 using UnityEngine;
 
 public class SamuraiBossAttacks : MonoBehaviour
@@ -48,7 +49,7 @@ public class SamuraiBossAttacks : MonoBehaviour
                     anim.SetTrigger("meleeAttack2");
                 }
 
-                SoundManager.instance.PlaySound(attackSound);
+                SoundManager.Instance.PlaySound(attackSound);
             }
         }
         if (enemyPatrol != null)
