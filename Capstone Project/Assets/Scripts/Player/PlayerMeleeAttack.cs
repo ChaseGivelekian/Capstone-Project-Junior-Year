@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMeleeAttack : MonoBehaviour
 {
+    private static readonly int Property = Animator.StringToHash("melee attack");
     public Animator anim;
     [SerializeField] public Transform attackPoint;
     [SerializeField] public float attackRange = .5f;
@@ -9,34 +10,38 @@ public class PlayerMeleeAttack : MonoBehaviour
     [SerializeField] public float attackCooldown;
     [SerializeField] public float maxMana;
     public LayerMask enemyLayers;
-    private float cooldownTimer = Mathf.Infinity;
-    private float value;
+    private float _cooldownTimer = Mathf.Infinity;
+    private float _value;
+    private PlayerAttack _playerAttack;
+
+    private void Awake()
+    {
+        _playerAttack = GetComponent<PlayerAttack>();
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0) && cooldownTimer > attackCooldown)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && _cooldownTimer > attackCooldown)
         {
             MeleeAttack();
         }
-        cooldownTimer += Time.deltaTime;
-        value = GetComponent<PlayerAttack>().manaAmount;
+        _cooldownTimer += Time.deltaTime;
+        _value = _playerAttack.manaAmount;
     }
     private void MeleeAttack()
     {
-        anim.SetTrigger("melee attack");
-        cooldownTimer = 0;
+        anim.SetTrigger(Property);
+        _cooldownTimer = 0;
 
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        var hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach (Collider2D enemy in hitEnemies)
+        foreach (var enemy in hitEnemies)
         {
             enemy.GetComponent<Health.Health>().TakeDamage(attackDamage);
 
-            if (value < maxMana)
-            {
-                PlayerAttack playerAttack = GetComponent<PlayerAttack>();
-                playerAttack.ManaLevel(5, 0);
-            }
+            if (!(_value < maxMana)) continue;
+            var playerAttack = GetComponent<PlayerAttack>();
+            playerAttack.ManaLevel(5, 0);
         }
     }
     private void OnDrawGizmosSelected()

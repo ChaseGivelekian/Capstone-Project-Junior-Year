@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FlowerDeath : MonoBehaviour
 {
+    private static readonly int Death = Animator.StringToHash("flowerDeath");
     [SerializeField] private Animator anim;
 
     private void Awake()
@@ -12,16 +13,15 @@ public class FlowerDeath : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
-        {
-            StartCoroutine(FadeAlphaToZero(GetComponent<SpriteRenderer>(), 2f));
-            anim.SetTrigger("flowerDeath");
-        }
+        if (!collision.CompareTag("Player")) return;
+        StartCoroutine(FadeAlphaToZero(GetComponent<SpriteRenderer>(), 2f));
+        anim.SetTrigger(Death);
     }
-    IEnumerator FadeAlphaToZero(SpriteRenderer renderer, float duration)
+
+    private static IEnumerator FadeAlphaToZero(SpriteRenderer renderer, float duration)
     {
-        Color startColor = renderer.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, 0);
+        var startColor = renderer.color;
+        var endColor = new Color(startColor.r, startColor.g, startColor.b, 0);
         float time = 0;
         while (time < duration)
         {

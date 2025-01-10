@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //If pause screen already active unpause and viceversa
+            //If pause screen already active unpause and vice versa
             PauseGame(!pauseScreen.activeInHierarchy);
         }
     }

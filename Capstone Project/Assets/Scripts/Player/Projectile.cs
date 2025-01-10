@@ -2,51 +2,52 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    private static readonly int Explode = Animator.StringToHash("explode");
     [SerializeField] private float speed;
-    private float direction;
-    private bool hit;
-    private float lifetime;
+    private float _direction;
+    private bool _hit;
+    private float _lifetime;
 
-    private Animator anim;
-    private BoxCollider2D boxCollider;
+    private Animator _anim;
+    private BoxCollider2D _boxCollider;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        _anim = GetComponent<Animator>();
+        _boxCollider = GetComponent<BoxCollider2D>();
     }
     private void Update()
     {
-        if (hit) return;
+        if (_hit) return;
 
-        float movementSpeed = speed * Time.deltaTime * direction;
+        var movementSpeed = speed * Time.deltaTime * _direction;
         transform.Translate(movementSpeed, 0, 0);
 
-        lifetime += Time.deltaTime;
-        if (lifetime > 5) gameObject.SetActive(false);
+        _lifetime += Time.deltaTime;
+        if (_lifetime > 5) gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        hit = true;
-        boxCollider.enabled = false;
-        anim.SetTrigger("explode");
+        _hit = true;
+        _boxCollider.enabled = false;
+        _anim.SetTrigger(Explode);
 
-        if (collision.tag == "Enemy")
+        if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<Health.Health>().TakeDamage(1);
         }
     }
-    public void SetDirection(float _direction)
+    public void SetDirection(float direction)
     {
-        lifetime = 0;
-        direction = _direction;
+        _lifetime = 0;
+        _direction = direction;
         gameObject.SetActive(true);
-        hit = false;
-        boxCollider.enabled = true;
+        _hit = false;
+        _boxCollider.enabled = true;
 
-        float localScaleX = transform.localScale.x;
+        var localScaleX = transform.localScale.x;
 
-        if (Mathf.Sign(localScaleX) != _direction)
+        if (!Mathf.Approximately(Mathf.Sign(localScaleX), direction))
         {
             localScaleX = -localScaleX;
         }

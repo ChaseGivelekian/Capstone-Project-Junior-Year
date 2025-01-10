@@ -3,50 +3,33 @@ using UnityEngine;
 
 public class PlayerRespawn1 : MonoBehaviour
 {
+    private static readonly int Appear = Animator.StringToHash("appear");
     [SerializeField] private AudioClip checkpointSound; //Sound that plays when getting a new checkpoint
     [SerializeField] public Transform target;
     [SerializeField] public Health.Health[] enemiesHealth;
-    private Transform currentCheckpoint; //Stores the last checkpoint here
-    private PlayerHealth playerHealth;
-    private UIManager uiManager;
-    private Animator anim;
-    public CameraController CameraController;
+    private Transform _currentCheckpoint; //Stores the last checkpoint here
+    private PlayerHealth _playerHealth;
+    private UIManager _uiManager;
+    public CameraController cameraController;
     public DoorToBoss doorToBoss;
 
     private void Awake()
     {
-        playerHealth = GetComponent<PlayerHealth>();
-        uiManager = FindObjectOfType<UIManager>();
+        _playerHealth = GetComponent<PlayerHealth>();
+        _uiManager = FindObjectOfType<UIManager>();
         target.GetComponent<PlayerFloating>().enabled = false;
-        anim = GetComponent<Animator>();
-        CameraController CameraController = Camera.main.GetComponent<CameraController>();
+        GetComponent<Animator>();
+        if (Camera.main != null) cameraController = Camera.main.GetComponent<CameraController>();
         // doorToBoss = doorToBoss.GetComponent<DoorToBoss>().bossCam;
     }
-    private void Update()
-    {
-        // bool triggerValue = anim.GetBool("die");
-        // if (triggerValue)
-        // {
-        //     target.GetComponent<PlayerFloating>().enabled = true;
-        // }
-        // else
-        // {
-        //     target.GetComponent<BoxCollider2D>().enabled = true;
-        //     target.GetComponent<PlayerMovement>().enabled = true;
-        // }
-        // if (transform.position.y >= 5.38)
-        // {
-        //     CheckRespawn();
-        // }
 
-    }
     public void CheckRespawn()
     {
         //Check if check point available
-        if (currentCheckpoint == null)
+        if (_currentCheckpoint == null)
         {
             //Show game over screen
-            uiManager.GameOver();
+            _uiManager.GameOver();
 
             return; //Don't execute the rest of this function
         }
@@ -55,40 +38,30 @@ public class PlayerRespawn1 : MonoBehaviour
         {
             enemy.GetComponent<Health.Health>().currentHealth = enemy.GetComponent<Health.Health>().startingHealth;
         }
-        transform.position = currentCheckpoint.position; //Move player to checkpoint position
-        playerHealth.Respawn(); //Restore player health and reset animation
+        transform.position = _currentCheckpoint.position; //Move player to checkpoint position
+        _playerHealth.Respawn(); //Restore player health and reset animation
 
         //Move camera to checkpoint room (**for this to work the checkpoint objects have to be placed as a child of the room object)
         // Debug.Log(CameraController);
 
         if (doorToBoss != null)
         {
-            if (doorToBoss.GetComponent<DoorToBoss>().defaultCam.enabled == true)
-            {
-                Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
-                Debug.Log("does this happen");
-            }
-            else
-            {
-                Debug.Log("boss cam is active");
-                return;
-            }
+            if (doorToBoss.GetComponent<DoorToBoss>().defaultCam.enabled != true) return;
+            cameraController.MoveToNewRoom(_currentCheckpoint.parent);
         }
         else
         {
-            Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
+            cameraController.MoveToNewRoom(_currentCheckpoint.parent);
         }
 
     }
     //Activate checkpoints
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Checkpoint")
-        {
-            currentCheckpoint = collision.transform; //Store the checkpoint that we activated as the current one
-            SoundManager.Instance.PlaySound(checkpointSound);
-            collision.GetComponent<Collider2D>().enabled = false; //Deactivate checkpoint collider
-            collision.GetComponent<Animator>().SetTrigger("appear"); //Trigger checkpoint animation
-        }
+        if (!collision.gameObject.CompareTag("Checkpoint")) return;
+        _currentCheckpoint = collision.transform; //Store the checkpoint that we activated as the current one
+        SoundManager.Instance.PlaySound(checkpointSound);
+        collision.GetComponent<Collider2D>().enabled = false; //Deactivate checkpoint collider
+        collision.GetComponent<Animator>().SetTrigger(Appear); //Trigger checkpoint animation
     }
 }

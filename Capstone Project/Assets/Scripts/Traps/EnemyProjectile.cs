@@ -2,46 +2,47 @@ using UnityEngine;
 
 public class EnemyProjectile : EnemyDamage
 {
+    private static readonly int Explode = Animator.StringToHash("explode");
     [SerializeField] private float speed;
     [SerializeField] private float resetTime;
-    private float lifetime;
-    private Animator anim;
-    private BoxCollider2D coll;
+    private float _lifetime;
+    private Animator _anim;
+    private BoxCollider2D _coll;
 
-    private bool hit;
+    private bool _hit;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        coll = GetComponent<BoxCollider2D>();
+        _anim = GetComponent<Animator>();
+        _coll = GetComponent<BoxCollider2D>();
     }
 
     public void ActivateProjectile()
     {
-        hit = false;
-        lifetime = 0;
+        _hit = false;
+        _lifetime = 0;
         gameObject.SetActive(true);
-        coll.enabled = true;
+        _coll.enabled = true;
     }
     private void Update()
     {
-        if (hit) return;
-        float movementSpeed = speed * Time.deltaTime;
+        if (_hit) return;
+        var movementSpeed = speed * Time.deltaTime;
         transform.Translate(movementSpeed, 0, 0);
 
-        lifetime += Time.deltaTime;
-        if (lifetime > resetTime)
+        _lifetime += Time.deltaTime;
+        if (_lifetime > resetTime)
             gameObject.SetActive(false);
     }
 
     private new void OnTriggerEnter2D(Collider2D collision)
     {
-        hit = true;
+        _hit = true;
         base.OnTriggerEnter2D(collision); //Execute logic from parent script first
-        coll.enabled = false;
+        _coll.enabled = false;
 
-        if (anim != null)
-            anim.SetTrigger("explode"); //When the object is a fireball explode it
+        if (_anim != null)
+            _anim.SetTrigger(Explode); //When the object is a fireball explode it
         else
             gameObject.SetActive(false); //When this hits any object deactivate arrow
     }

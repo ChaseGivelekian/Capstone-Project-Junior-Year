@@ -8,10 +8,10 @@ public class Spikehead : EnemyDamage
     [SerializeField] private float range;
     [SerializeField] private float checkDelay;
     [SerializeField] private LayerMask playerLayer;
-    private Vector3[] directions = new Vector3[4];
-    private Vector3 destination;
-    private float checkTimer;
-    private bool attacking;
+    private readonly Vector3[] _directions = new Vector3[4];
+    private Vector3 _destination;
+    private float _checkTimer;
+    private bool _attacking;
 
     [Header("SFX")]
     [SerializeField] private AudioClip impactSound;
@@ -23,14 +23,14 @@ public class Spikehead : EnemyDamage
     private void Update()
     {
         //Move spikehead to destination only if attacking
-        if (attacking)
+        if (_attacking)
         {
-            transform.Translate(destination * Time.deltaTime * speed);
+            transform.Translate(_destination * (Time.deltaTime * speed));
         }
         else
         {
-            checkTimer += Time.deltaTime;
-            if (checkTimer > checkDelay)
+            _checkTimer += Time.deltaTime;
+            if (_checkTimer > checkDelay)
             {
                 CheckForPlayer();
             }
@@ -41,30 +41,28 @@ public class Spikehead : EnemyDamage
         CalculateDirections();
 
         //Check if spikehead sees player if all 4 directions
-        for (int i = 0; i < directions.Length; i++)
+        foreach (var t in _directions)
         {
-            Debug.DrawRay(transform.position, directions[i], Color.red);
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, directions[i], range, playerLayer);
+            Debug.DrawRay(transform.position, t, Color.red);
+            var hit = Physics2D.Raycast(transform.position, t, range, playerLayer);
 
-            if (hit.collider != null && !attacking)
-            {
-                attacking = true;
-                destination = directions[i];
-                checkTimer = 0;
-            }
+            if (!hit.collider || _attacking) continue;
+            _attacking = true;
+            _destination = t;
+            _checkTimer = 0;
         }
     }
     private void CalculateDirections()
     {
-        directions[0] = transform.right * range; //Right direction
-        directions[1] = -transform.right * range; //Left direction
-        directions[2] = transform.up * range; //Up direction
-        directions[3] = -transform.up * range; //Down direction
+        _directions[0] = transform.right * range; //Right direction
+        _directions[1] = -transform.right * range; //Left direction
+        _directions[2] = transform.up * range; //Up direction
+        _directions[3] = -transform.up * range; //Down direction
     }
     private void Stop()
     {
-        destination = transform.position; //Set destination as current position so it doesn't move
-        attacking = false;
+        _destination = transform.position; //Set destination as current position so it doesn't move
+        _attacking = false;
     }
     private new void OnTriggerEnter2D(Collider2D collision)
     {

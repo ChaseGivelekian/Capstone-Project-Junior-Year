@@ -5,11 +5,11 @@ public class VolumeText : MonoBehaviour
 {
     [SerializeField] private string volumeName;
     [SerializeField] private string textIntro; //Sound: or Music:
-    private Text txt;
+    private Text _txt;
 
     private void Awake()
     {
-        txt = GetComponent<Text>();
+        _txt = GetComponent<Text>();
     }
     private void Update()
     {
@@ -17,7 +17,7 @@ public class VolumeText : MonoBehaviour
     }
     private void UpdateVolume()
     {
-        float volumeValue = Mathf.Floor(PlayerPrefs.GetFloat(volumeName) * 100);
-        txt.text = textIntro + volumeValue.ToString();
+        var volumeValue = Mathf.Floor(PlayerPrefs.GetFloat(volumeName) * 100);
+        _txt.text = textIntro + volumeValue;
     }
 }

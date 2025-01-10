@@ -4,69 +4,68 @@ using Core;
 
 public class Firetrap : MonoBehaviour
 {
+    private static readonly int Activated = Animator.StringToHash("activated");
     [SerializeField] private float damage;
 
     [Header("Firetrap Timers")]
     [SerializeField] private float activationDelay;
     [SerializeField] private float activeTime;
-    private Animator anim;
-    private SpriteRenderer spriteRend;
+    private Animator _anim;
+    private SpriteRenderer _spriteRend;
 
     [Header("SFX")]
     [SerializeField] private AudioClip firetrapSound;
 
-    private bool triggered; //when the trap gets triggered
-    private bool active; //when the trap is active and can hurt the player
+    private bool _triggered; //when the trap gets triggered
+    private bool _active; //when the trap is active and can hurt the player
 
-    private PlayerHealth playerHealth;
+    private PlayerHealth _playerHealth;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        spriteRend = GetComponent<SpriteRenderer>();
+        _anim = GetComponent<Animator>();
+        _spriteRend = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if (playerHealth != null && active)
-            playerHealth.TakeDamage(damage);
+        if (_playerHealth && _active)
+            _playerHealth.TakeDamage(damage);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
-        {
-            playerHealth = collision.GetComponent<PlayerHealth>();
+        if (!collision.CompareTag("Player")) return;
+        _playerHealth = collision.GetComponent<PlayerHealth>();
 
-            if (!triggered)
-                StartCoroutine(ActivateFiretrap());
+        if (!_triggered)
+            StartCoroutine(ActivateFiretrap());
 
-            if (active)
-                collision.GetComponent<PlayerHealth>().TakeDamage(damage);
-        }
+        if (_active)
+            collision.GetComponent<PlayerHealth>().TakeDamage(damage);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
-            playerHealth = null;
+        if (collision.CompareTag("Player"))
+            _playerHealth = null;
     }
     private IEnumerator ActivateFiretrap()
     {
         //turn the sprite red to notify the player and trigger the trap
-        triggered = true;
-        spriteRend.color = Color.red;
+        _triggered = true;
+        _spriteRend.color = Color.red;
 
         //Wait for delay, activate trap, turn on animation, return color back to normal
         yield return new WaitForSeconds(activationDelay);
         SoundManager.Instance.PlaySound(firetrapSound);
-        spriteRend.color = Color.white; //turn the sprite back to its initial color
-        active = true;
-        anim.SetBool("activated", true);
+        _spriteRend.color = Color.white; //turn the sprite back to its initial color
+        _active = true;
+        _anim.SetBool(Activated, true);
 
         //Wait until X seconds, deactivate trap and reset all variables and animator
         yield return new WaitForSeconds(activeTime);
-        active = false;
-        triggered = false;
-        anim.SetBool("activated", false);
+        _active = false;
+        _triggered = false;
+        _anim.SetBool(Activated, false);
     }
 }

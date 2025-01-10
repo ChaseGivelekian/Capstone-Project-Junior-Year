@@ -7,12 +7,12 @@ public class SelectionArrow : MonoBehaviour
     [SerializeField] private RectTransform[] options;
     [SerializeField] private AudioClip changeSound; //Sound played when moving arrow up/down
     [SerializeField] private AudioClip interactSound; //Sound played when clicking on an option
-    private RectTransform rect;
-    private int currentPosition;
+    private RectTransform _rect;
+    private int _currentPosition;
 
     private void Awake()
     {
-        rect = GetComponent<RectTransform>();
+        _rect = GetComponent<RectTransform>();
     }
     private void Update()
     {
@@ -32,32 +32,32 @@ public class SelectionArrow : MonoBehaviour
             Interact();
         }
     }
-    private void ChangePosition(int _change)
+    private void ChangePosition(int change)
     {
-        currentPosition += _change;
+        _currentPosition += change;
 
-        if (_change != 0)
+        if (change != 0)
         {
             SoundManager.Instance.PlaySound(changeSound);
         }
 
-        if (currentPosition < 0)
+        if (_currentPosition < 0)
         {
-            currentPosition = options.Length - 1;
+            _currentPosition = options.Length - 1;
         }
-        else if (currentPosition > options.Length - 1)
+        else if (_currentPosition > options.Length - 1)
         {
-            currentPosition = 0;
+            _currentPosition = 0;
         }
 
         //Assign the Y position of the current option to the arrow (this moves it up and down)
-        rect.position = new Vector3(rect.position.x, options[currentPosition].position.y, 0);
+        _rect.position = new Vector3(_rect.position.x, options[_currentPosition].position.y, 0);
     }
     private void Interact()
     {
         SoundManager.Instance.PlaySound(interactSound);
 
         //Access the button component on each option and call it's function
-        options[currentPosition].GetComponent<Button>().onClick.Invoke();
+        options[_currentPosition].GetComponent<Button>().onClick.Invoke();
     }
 }

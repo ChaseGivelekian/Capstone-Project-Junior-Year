@@ -7,33 +7,31 @@ public class EnemyAI : MonoBehaviour
     public Transform target;
     public float activateDistance = 50f;
     public float pathUpdateSeconds = 0.5f;
-    private Collider2D coll;
+    private Collider2D _coll;
     [Header("Physics")]
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
     public float jumpNodeHeightRequirement = 0.8f;
     public float jumpModifier = 0.3f;
-    public float jumpCheckOffset = 0.1f;
     public float jumpCooldown = 1f;
     [Header("Custom Behavior")]
     public bool followEnabled = true;
     public bool jumpEnabled = true;
     public bool directionLookEnabled = true;
     [SerializeField] private LayerMask jumpableGround;
-    private Path path;
-    private int currentWaypoint = 0;
-    private Animator anim;
+    private Path _path;
+    private int _currentWaypoint;
 
-    Seeker seeker;
-    Rigidbody2D rb;
+    private Seeker _seeker;
+    private Rigidbody2D _rb;
 
     public void Awake()
     {
-        seeker = GetComponent<Seeker>();
-        rb = GetComponent<Rigidbody2D>();
-        coll = GetComponent<Collider2D>();
-        InvokeRepeating("UpdatePath", 0f, pathUpdateSeconds);
-        anim = GetComponent<Animator>();
+        _seeker = GetComponent<Seeker>();
+        _rb = GetComponent<Rigidbody2D>();
+        _coll = GetComponent<Collider2D>();
+        InvokeRepeating(nameof(UpdatePath), 0f, pathUpdateSeconds);
+        GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
@@ -44,37 +42,37 @@ public class EnemyAI : MonoBehaviour
     }
     private void UpdatePath()
     {
-        if (followEnabled && TargetInDistance() && seeker.IsDone())
+        if (followEnabled && TargetInDistance() && _seeker.IsDone())
         {
-            seeker.StartPath(rb.position, target.position, OnPathComplete);
+            _seeker.StartPath(_rb.position, target.position, OnPathComplete);
         }
     }
     private void PathFollow()
     {
-        if (path == null)
+        if (_path == null)
         {
             return;
         }
 
         //Reached end of path
-        if (currentWaypoint >= path.vectorPath.Count)
+        if (_currentWaypoint >= _path.vectorPath.Count)
         {
             return;
         }
 
         //See if colliding with anything
-        bool isGrounded = Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0, Vector2.down, 0.1f, jumpableGround);
+        bool isGrounded = Physics2D.BoxCast(_coll.bounds.center, _coll.bounds.size, 0, Vector2.down, 0.1f, jumpableGround);
 
         //Direction Calculation
-        Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
-        Vector2 force = direction * speed * Time.deltaTime;
+        var direction = ((Vector2)_path.vectorPath[_currentWaypoint] - _rb.position).normalized;
+        _ = direction * (speed * Time.deltaTime);
 
         //Jump
         if (jumpEnabled && isGrounded && jumpCooldown <= 0)
         {
             if (direction.y > jumpNodeHeightRequirement)
             {
-                rb.AddForce(Vector2.up * speed * jumpModifier);
+                _rb.AddForce(Vector2.up * (speed * jumpModifier));
                 jumpCooldown = 3f;
             }
         }
@@ -83,38 +81,35 @@ public class EnemyAI : MonoBehaviour
             jumpCooldown -= Time.deltaTime;
         }
         //Movement
-        rb.AddForce(Vector2.right * direction, ForceMode2D.Impulse);
+        _rb.AddForce(Vector2.right * direction, ForceMode2D.Impulse);
 
-        if (rb.velocity.x > speed)
+        if (_rb.velocity.x > speed)
         {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+            _rb.velocity = new Vector2(speed, _rb.velocity.y);
 
         }
-        else if (rb.velocity.x < speed * (-1))
+        else if (_rb.velocity.x < speed * -1)
         {
-            rb.velocity = new Vector2(speed * (-1), rb.velocity.y);
+            _rb.velocity = new Vector2(speed * -1, _rb.velocity.y);
         }
 
         //NextWaypoint
-        float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
+        var distance = Vector2.Distance(_rb.position, _path.vectorPath[_currentWaypoint]);
 
         if (distance < nextWaypointDistance)
         {
-            currentWaypoint++;
+            _currentWaypoint++;
         }
 
         //Direction Graphics Handling
-        if (directionLookEnabled)
+        if (!directionLookEnabled) return;
+        transform.localScale = _rb.velocity.x switch
         {
-            if (rb.velocity.x > 0.05f)
-            {
-                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-            else if (rb.velocity.x < -0.05f)
-            {
-                transform.localScale = new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
-            }
-        }
+            > 0.05f => new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z),
+            < -0.05f => new Vector3(-1f * Mathf.Abs(transform.localScale.x), transform.localScale.y,
+                transform.localScale.z),
+            _ => transform.localScale
+        };
     }
     private bool TargetInDistance()
     {
@@ -122,11 +117,9 @@ public class EnemyAI : MonoBehaviour
     }
     private void OnPathComplete(Path p)
     {
-        if (!p.error)
-        {
-            path = p;
+        if (p.error) return;
+        _path = p;
 
-            currentWaypoint = 0;
-        }
+        _currentWaypoint = 0;
     }
 }

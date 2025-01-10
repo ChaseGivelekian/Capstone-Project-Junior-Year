@@ -8,8 +8,8 @@ namespace Health
         [SerializeField] private Transform door;
         [SerializeField] private Transform player;
         [SerializeField] private Health bossHealth;
-        [SerializeField] private Image totalhealthBar;
-        [SerializeField] private Image currenthealthBar;
+        [SerializeField] private Image totalHealthBar;
+        [SerializeField] private Image currentHealthBar;
         [SerializeField] private float value;
         private Transform _transform;
         private Transform _transform1;
@@ -22,21 +22,21 @@ namespace Health
 
         private void Update()
         {
-            totalhealthBar.fillAmount = bossHealth.startingHealth / value;
-            currenthealthBar.fillAmount = bossHealth.currentHealth / value;
+            totalHealthBar.fillAmount = bossHealth.startingHealth / value;
+            currentHealthBar.fillAmount = bossHealth.currentHealth / value;
 
             player = _transform;
             door = _transform1;
 
             if (bossHealth.currentHealth <= 0 || player.position.x <= door.position.x)
             {
-                totalhealthBar.enabled = false;
-                currenthealthBar.enabled = false;
+                totalHealthBar.enabled = false;
+                currentHealthBar.enabled = false;
             }
             else
             {
-                totalhealthBar.enabled = true;
-                currenthealthBar.enabled = true;
+                totalHealthBar.enabled = true;
+                currentHealthBar.enabled = true;
             }
         }
     }

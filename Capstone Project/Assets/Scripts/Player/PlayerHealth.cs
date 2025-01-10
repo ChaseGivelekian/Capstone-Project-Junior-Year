@@ -4,16 +4,20 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private static readonly int Hurt = Animator.StringToHash("hurt");
+    private static readonly int Grounded = Animator.StringToHash("grounded");
+    private static readonly int Die = Animator.StringToHash("die");
+
     [Header("Health")]
     [SerializeField] public float startingHealth;
     public float currentHealth;
-    private Animator anim;
-    private bool dead;
+    private Animator _anim;
+    private bool _dead;
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
-    private SpriteRenderer spriteRend;
+    private SpriteRenderer _spriteRend;
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
@@ -24,73 +28,78 @@ public class PlayerHealth : MonoBehaviour
 
     private void Awake()
     {
-        float persistantHealth = PlayerPrefs.GetFloat("persistantHealth", startingHealth);
-        if (persistantHealth != startingHealth)
+        var persistantHealth = PlayerPrefs.GetFloat("persistantHealth", startingHealth);
+        if (!Mathf.Approximately(persistantHealth, startingHealth))
         {
             startingHealth = persistantHealth;
             currentHealth = startingHealth;
         }
         currentHealth = startingHealth;
-        anim = GetComponent<Animator>();
-        spriteRend = GetComponent<SpriteRenderer>();
+        _anim = GetComponent<Animator>();
+        _spriteRend = GetComponent<SpriteRenderer>();
     }
 
-    public void TakeDamage(float _damage)
+    public void TakeDamage(float damage)
     {
-        currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
 
-        if (currentHealth > 0)
+        switch (currentHealth)
         {
-            anim.SetTrigger("hurt");
-            StartCoroutine(Invunerability());
-            SoundManager.Instance.PlaySound(hurtSound);
-        }
-        else if (currentHealth <= 0)
-        {
-            if (!dead)
+            case > 0:
+                _anim.SetTrigger(Hurt);
+                StartCoroutine(Invulnerability());
+                SoundManager.Instance.PlaySound(hurtSound);
+                break;
+            case <= 0:
             {
-                //Deactivate all attached component classes
-                foreach (Behaviour component in components)
+                if (!_dead)
                 {
-                    component.enabled = false;
+                    //Deactivate all attached component classes
+                    foreach (var component in components)
+                    {
+                        component.enabled = false;
+                    }
+
+                    _anim.SetBool(Grounded, true);
+                    _anim.SetTrigger(Die);
+
+                    _dead = true;
+                    SoundManager.Instance.PlaySound(deathSound);
                 }
 
-                anim.SetBool("grounded", true);
-                anim.SetTrigger("die");
-
-                dead = true;
-                SoundManager.Instance.PlaySound(deathSound);
+                break;
             }
         }
     }
-    public void AddHealth(float _value)
+
+    private void AddHealth(float value)
     {
-        currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
+        currentHealth = Mathf.Clamp(currentHealth + value, 0, startingHealth);
     }
     public void Respawn()
     {
-        PlayerAttack playerAttack = GetComponent<PlayerAttack>();
-        float maxManaLevel = GetComponent<PlayerAttack>().maxMana;
+        var playerAttack = GetComponent<PlayerAttack>();
+        var maxManaLevel = GetComponent<PlayerAttack>().maxMana;
         playerAttack.ManaLevel(0, maxManaLevel);
         AddHealth(startingHealth);
-        anim.ResetTrigger("die");
-        anim.Play("Idle");
-        dead = false;
+        _anim.ResetTrigger("die");
+        _anim.Play("Idle");
+        _dead = false;
 
         //Deactivate all attached component classes
-        foreach (Behaviour component in components)
+        foreach (var component in components)
         {
             component.enabled = true;
         }
     }
-    private IEnumerator Invunerability()
+    private IEnumerator Invulnerability()
     {
         Physics2D.IgnoreLayerCollision(10, 11, true);
-        for (int i = 0; i < numberOfFlashes; i++)
+        for (var i = 0; i < numberOfFlashes; i++)
         {
-            spriteRend.color = new Color(1, 0, 0, .5f);
+            _spriteRend.color = new Color(1, 0, 0, .5f);
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
-            spriteRend.color = Color.white;
+            _spriteRend.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
         Physics2D.IgnoreLayerCollision(10, 11, false);

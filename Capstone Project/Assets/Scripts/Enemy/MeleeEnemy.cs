@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class MeleeEnemy : MonoBehaviour
 {
+    private static readonly int MeleeAttack = Animator.StringToHash("meleeAttack");
+
     [Header("Attack Parameters")]
     [SerializeField] private float attackCooldown;
     [SerializeField] private float range;
@@ -15,50 +17,54 @@ public class MeleeEnemy : MonoBehaviour
 
     [Header("Player Layer")]
     [SerializeField] private LayerMask playerLayer;
-    private float cooldownTimer = Mathf.Infinity;
+    private float _cooldownTimer = Mathf.Infinity;
 
     [Header("Attack Sound")]
     [SerializeField] private AudioClip attackSound;
 
     //References
-    private Animator anim;
-    private PlayerHealth playerHealth;
+    private Animator _anim;
+    private PlayerHealth _playerHealth;
 
-    private EnemyPatrol enemyPatrol;
+    private EnemyPatrol _enemyPatrol;
+    private bool _b;
+    private bool _b1;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        _b1 = PlayerInSight();
+        _b = PlayerInSight();
+        _anim = GetComponent<Animator>();
+        _enemyPatrol = GetComponentInParent<EnemyPatrol>();
     }
     private void Update()
     {
-        cooldownTimer += Time.deltaTime;
+        _cooldownTimer += Time.deltaTime;
 
         //Attack ony when player is in sight
-        if (PlayerInSight())
+        if (_b)
         {
-            if (cooldownTimer >= attackCooldown && playerHealth.currentHealth > 0)
+            if (_cooldownTimer >= attackCooldown && _playerHealth.currentHealth > 0)
             {
-                cooldownTimer = 0;
-                anim.SetTrigger("meleeAttack");
+                _cooldownTimer = 0;
+                _anim.SetTrigger(MeleeAttack);
                 SoundManager.Instance.PlaySound(attackSound);
             }
         }
 
-        if (enemyPatrol != null)
+        if (_enemyPatrol)
         {
-            enemyPatrol.enabled = !PlayerInSight();
+            _enemyPatrol.enabled = !_b1;
         }
     }
     private bool PlayerInSight()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
+        var hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance,
         new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, Vector2.left, 0, playerLayer);
 
         if (hit.collider != null)
         {
-            playerHealth = hit.transform.GetComponent<PlayerHealth>();
+            _playerHealth = hit.transform.GetComponent<PlayerHealth>();
         }
 
         return hit.collider != null;
@@ -74,7 +80,7 @@ public class MeleeEnemy : MonoBehaviour
         //If player is still in range damage them
         if (PlayerInSight())
         {
-            playerHealth.TakeDamage(damage);
+            _playerHealth.TakeDamage(damage);
         }
     }
 }

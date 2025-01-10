@@ -1,7 +1,7 @@
 using UnityEngine;
 using Pathfinding;
 
-public class EnemyGFX : MonoBehaviour
+public class EnemyGfx : MonoBehaviour
 {
     [SerializeField] private Transform enemy;
     [SerializeField] private Rigidbody2D rb;
@@ -10,33 +10,35 @@ public class EnemyGFX : MonoBehaviour
     public float jumpModifier = .3f;
     public AIPath aiPath;
     public float jumpCheckOffset;
-    private bool isGrounded = false;
+    private bool _isGrounded;
+    private Transform _transform;
+    private Collider2D _collider2D;
 
 
     private void Awake()
     {
+        _collider2D = GetComponent<Collider2D>();
+        _transform = enemy.GetComponent<Transform>();
         rb = GetComponent<Rigidbody2D>();
     }
-    void Update()
+
+    private void Update()
     {
-        enemy = enemy.GetComponent<Transform>();
-        isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, GetComponent<Collider2D>().bounds.extents.y + jumpCheckOffset);
-        Debug.Log(isGrounded);
-        if (isGrounded)
+        enemy = _transform;
+        _isGrounded = Physics2D.Raycast(transform.position, -Vector3.up, _collider2D.bounds.extents.y + jumpCheckOffset);
+        if (_isGrounded)
         {
             if (enemy.position.y > jumpNodeHeightRequirement)
             {
-                rb.AddForce(Vector2.up * speed * jumpModifier);
+                rb.AddForce(Vector2.up * (speed * jumpModifier));
             }
         }
 
-        if (aiPath.desiredVelocity.x >= .01f)
+        transform.localScale = aiPath.desiredVelocity.x switch
         {
-            transform.localScale = new Vector3(3, 3, 3);
-        }
-        else if (aiPath.desiredVelocity.x <= -.01f)
-        {
-            transform.localScale = new Vector3(-3, 3, 3);
-        }
+            >= .01f => new Vector3(3, 3, 3),
+            <= -.01f => new Vector3(-3, 3, 3),
+            _ => transform.localScale
+        };
     }
 }

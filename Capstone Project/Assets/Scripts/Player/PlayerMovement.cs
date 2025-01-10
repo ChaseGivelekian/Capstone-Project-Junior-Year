@@ -3,17 +3,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    private static readonly int Run = Animator.StringToHash("run");
+    private static readonly int Grounded = Animator.StringToHash("grounded");
+
     [Header("Movement Parameters")]
     [SerializeField] private float speed;
     [SerializeField] private float jumpPower;
 
     [Header("Coyote Time")]
     [SerializeField] private float coyoteTime; //How much time the player can hang in the air before jumping
-    private float coyoteCounter; //How much time passed since the player ran off the edge
+    private float _coyoteCounter; //How much time passed since the player ran off the edge
 
     [Header("Multiple Jumps")]
     [SerializeField] private int extraJumps;
-    private int jumpCounter;
+    private int _jumpCounter;
 
     [Header("Wall Jumping")]
     [SerializeField] private float wallJumpX; //Horizontal wall jump force
@@ -26,37 +29,35 @@ public class PlayerMovement : MonoBehaviour
     [Header("Sounds")]
     [SerializeField] private AudioClip jumpSound;
 
-    private Rigidbody2D body;
-    private Animator anim;
-    private BoxCollider2D boxCollider;
+    private Rigidbody2D _body;
+    private Animator _anim;
+    private BoxCollider2D _boxCollider;
     // private float wallJumpCooldown;
-    private float horizontalInput;
+    private float _horizontalInput;
 
     private void Awake()
     {
         //Gets references for rigidbody and animator objects
-        body = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
-        boxCollider = GetComponent<BoxCollider2D>();
+        _body = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
+        _boxCollider = GetComponent<BoxCollider2D>();
     }
     private void Update()
     {
 
-        horizontalInput = Input.GetAxis("Horizontal");
+        _horizontalInput = Input.GetAxis("Horizontal");
 
-        // Flip player when moving a different direction
-        if (horizontalInput > .01f)
+        transform.localScale = _horizontalInput switch
         {
-            transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
-        }
-        else if (horizontalInput < -.01f)
-        {
-            transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f);
-        }
+            // Flip player when moving a different direction
+            > .01f => new Vector3(1.2f, 1.2f, 1.2f),
+            < -.01f => new Vector3(-1.2f, 1.2f, 1.2f),
+            _ => transform.localScale
+        };
 
         //Set animator parameters
-        anim.SetBool("run", horizontalInput != 0);
-        anim.SetBool("grounded", isGrounded());
+        _anim.SetBool(Run, _horizontalInput != 0);
+        _anim.SetBool(Grounded, IsGrounded());
 
         //Jump 
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -65,87 +66,88 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Adjustable jump height
-        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) && body.velocity.y > 0)
+        if ((Input.GetKeyUp(KeyCode.Space) || Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow)) && _body.velocity.y > 0)
         {
-            body.velocity = new Vector2(body.velocity.x, body.velocity.y / 2);
+            _body.velocity = new Vector2(_body.velocity.x, _body.velocity.y / 2);
         }
 
-        if (onWall())
+        if (OnWall())
         {
-            body.gravityScale = 0;
-            body.velocity = Vector2.zero;
+            _body.gravityScale = 0;
+            _body.velocity = Vector2.zero;
         }
         else
         {
-            body.gravityScale = 7;
-            body.velocity = new Vector2(horizontalInput * speed, body.velocity.y);
+            _body.gravityScale = 7;
+            _body.velocity = new Vector2(_horizontalInput * speed, _body.velocity.y);
 
-            if (isGrounded())
+            if (IsGrounded())
             {
-                coyoteCounter = coyoteTime; //Reset coyote counter when on the ground
-                jumpCounter = extraJumps; //Reset jump counter to extra jump value
+                _coyoteCounter = coyoteTime; //Reset coyote counter when on the ground
+                _jumpCounter = extraJumps; //Reset jump counter to extra jump value
             }
             else
             {
-                coyoteCounter -= Time.deltaTime; //Start decreasing coyote counter when not on the ground
+                _coyoteCounter -= Time.deltaTime; //Start decreasing coyote counter when not on the ground
             }
         }
     }
     private void Jump()
     {
         //If coyote counter is 0 or less and not on the wall and don't have any extra jumps don't do anything
-        if (coyoteCounter < 0 && !onWall() && jumpCounter <= 0) return;
+        if (_coyoteCounter < 0 && !OnWall() && _jumpCounter <= 0) return;
 
         SoundManager.Instance.PlaySound(jumpSound);
 
-        if (onWall())
+        if (OnWall())
         {
             WallJump();
         }
         else
         {
-            if (isGrounded())
+            if (IsGrounded())
             {
-                body.velocity = new Vector2(body.velocity.x, jumpPower);
+                _body.velocity = new Vector2(_body.velocity.x, jumpPower);
             }
             else
             {
                 //If not on the ground and coyote counter bigger than 0 do a normal jump
-                if (coyoteCounter > 0)
+                if (_coyoteCounter > 0)
                 {
-                    body.velocity = new Vector2(body.velocity.x, jumpPower);
+                    _body.velocity = new Vector2(_body.velocity.x, jumpPower);
                 }
                 else
                 {
-                    if (jumpCounter > 0) //If we have extra jumps then jump and decrease the jump counter
+                    if (_jumpCounter > 0) //If we have extra jumps then jump and decrease the jump counter
                     {
-                        body.velocity = new Vector2(body.velocity.x, jumpPower);
-                        jumpCounter--;
+                        _body.velocity = new Vector2(_body.velocity.x, jumpPower);
+                        _jumpCounter--;
                     }
                 }
             }
 
             //Reset coyote counter to 0 to avoid double jumps
-            coyoteCounter = 0;
+            _coyoteCounter = 0;
         }
     }
     private void WallJump()
     {
-        body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpX, wallJumpY));
+        _body.AddForce(new Vector2(-Mathf.Sign(transform.localScale.x) * wallJumpX, wallJumpY));
         // wallJumpCooldown = 0;
     }
-    public bool isGrounded()
+
+    private bool IsGrounded()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
-        return raycastHit.collider != null;
+        var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundLayer);
+        return raycastHit.collider;
     }
-    private bool onWall()
+    private bool OnWall()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
-        return raycastHit.collider != null;
+        var raycastHit = Physics2D.BoxCast(_boxCollider.bounds.center, _boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, wallLayer);
+        return raycastHit.collider;
     }
-    public bool canAttack()
+    public bool CanAttack()
     {
-        return horizontalInput == 0 && !onWall();
+        return _horizontalInput == 0 && !OnWall();
     }
 }

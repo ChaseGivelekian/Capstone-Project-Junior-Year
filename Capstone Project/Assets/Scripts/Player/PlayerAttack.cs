@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    private static readonly int Property = Animator.StringToHash("ranged attack");
     [SerializeField] private float attackCooldown;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject[] fireballs;
@@ -10,26 +11,26 @@ public class PlayerAttack : MonoBehaviour
     public float manaAmount;
     public float maxMana;
 
-    private Animator anim;
-    private PlayerMovement playerMovement;
-    private float cooldownTimer = Mathf.Infinity;
+    private Animator _anim;
+    private PlayerMovement _playerMovement;
+    private float _cooldownTimer = Mathf.Infinity;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
-        playerMovement = GetComponent<PlayerMovement>();
+        _anim = GetComponent<Animator>();
+        _playerMovement = GetComponent<PlayerMovement>();
         maxMana = GetComponent<PlayerMeleeAttack>().maxMana;
         manaAmount = maxMana;
     }
     private void Update()
     {
         ManaLevel(0, 0);
-        if (Input.GetMouseButton(1) && cooldownTimer > attackCooldown && playerMovement.canAttack() && manaAmount >= 10)
+        if (Input.GetMouseButton(1) && _cooldownTimer > attackCooldown && _playerMovement.CanAttack() && manaAmount >= 10)
         {
             Attack();
         }
 
-        cooldownTimer += Time.deltaTime;
+        _cooldownTimer += Time.deltaTime;
     }
     public void ManaLevel(float value, float resetMana)
     {
@@ -46,8 +47,8 @@ public class PlayerAttack : MonoBehaviour
     private void Attack()
     {
         SoundManager.Instance.PlaySound(fireballSound);
-        anim.SetTrigger("ranged attack");
-        cooldownTimer = 0;
+        _anim.SetTrigger(Property);
+        _cooldownTimer = 0;
         manaAmount -= 10;
 
         fireballs[FindFireball()].transform.position = firePoint.position;
@@ -55,7 +56,7 @@ public class PlayerAttack : MonoBehaviour
     }
     private int FindFireball()
     {
-        for (int i = 0; i < fireballs.Length; i++)
+        for (var i = 0; i < fireballs.Length; i++)
         {
             if (!fireballs[i].activeInHierarchy)
             {

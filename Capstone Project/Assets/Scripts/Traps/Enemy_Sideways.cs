@@ -1,50 +1,50 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Enemy_Sideways : MonoBehaviour
+public class EnemySideways : MonoBehaviour
 {
     [SerializeField] private float movementDistance;
     [SerializeField] private float speed;
     [SerializeField] private float damage;
-    private bool movingLeft;
-    private float leftEdge;
-    private float rightEdge;
+    private bool _movingLeft;
+    private float _leftEdge;
+    private float _rightEdge;
 
     private void Awake()
     {
-        leftEdge = transform.position.x - movementDistance;
-        rightEdge = transform.position.x + movementDistance;
+        _leftEdge = transform.position.x - movementDistance;
+        _rightEdge = transform.position.x + movementDistance;
     }
 
     private void Update()
     {
-        if (movingLeft)
+        if (_movingLeft)
         {
-            if (transform.position.x > leftEdge)
+            if (transform.position.x > _leftEdge)
             {
                 transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
             }
             else
             {
-                movingLeft = false;
+                _movingLeft = false;
             }
         }
         else
         {
-            if (transform.position.x < rightEdge)
+            if (transform.position.x < _rightEdge)
             {
                 transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
             }
             else
             {
-                movingLeft = true;
+                _movingLeft = true;
             }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
