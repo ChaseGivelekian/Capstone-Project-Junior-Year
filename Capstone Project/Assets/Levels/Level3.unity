@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2173,7 +2172,6 @@ Transform:
   - {fileID: 566447261}
   - {fileID: 2115102731}
   - {fileID: 1555333066}
-  - {fileID: 1935135154}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &321866864
@@ -4475,6 +4473,7 @@ Transform:
   - {fileID: 1666702598}
   - {fileID: 926583175}
   - {fileID: 1828152857}
+  - {fileID: 1935135154}
   m_Father: {fileID: 318499880}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &566447262
@@ -10865,7 +10864,7 @@ MonoBehaviour:
   target: {fileID: 1211818031}
   enemiesHealth:
   - {fileID: 4921601686137915007}
-  CameraController: {fileID: 468735025}
+  cameraController: {fileID: 0}
   doorToBoss: {fileID: 1623696992}
 --- !u!1 &1218988812
 GameObject:
@@ -12984,8 +12983,8 @@ MonoBehaviour:
   door: {fileID: 1623696988}
   player: {fileID: 1211818031}
   bossHealth: {fileID: 4921601686137915007}
-  totalhealthBar: {fileID: 1774871830}
-  currenthealthBar: {fileID: 1833206907}
+  totalHealthBar: {fileID: 1774871830}
+  currentHealthBar: {fileID: 1833206907}
   value: 20
 --- !u!1 &1420092479
 GameObject:
@@ -17812,7 +17811,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1935135154}
   m_Layer: 0
-  m_Name: Flower
+  m_Name: Flowers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17849,7 +17848,7 @@ Transform:
   - {fileID: 865924605}
   - {fileID: 1521824559}
   - {fileID: 1405461456}
-  m_Father: {fileID: 318499880}
+  m_Father: {fileID: 566447261}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1938827189
 PrefabInstance:

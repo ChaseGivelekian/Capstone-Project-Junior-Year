@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2238,8 +2237,8 @@ MonoBehaviour:
   door: {fileID: 1271332082}
   player: {fileID: 1887939188}
   bossHealth: {fileID: 2021788689}
-  totalhealthBar: {fileID: 541306228}
-  currenthealthBar: {fileID: 1541870490}
+  totalHealthBar: {fileID: 541306228}
+  currentHealthBar: {fileID: 1541870490}
   value: 10
 --- !u!1 &360704003
 GameObject:
