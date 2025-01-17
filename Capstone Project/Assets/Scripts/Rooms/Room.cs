@@ -1,30 +1,34 @@
 using UnityEngine;
 
-public class Room : MonoBehaviour
+namespace Rooms
 {
-    [SerializeField] private GameObject[] enemies;
-    private Vector3[] _initialPosition;
-
-    private void Awake()
+    public class Room : MonoBehaviour
     {
-        //Save the initial positions of the enemies
-        _initialPosition = new Vector3[enemies.Length];
-        for (var i = 0; i < enemies.Length; i++)
+        [SerializeField] private GameObject[] enemies;
+        private Vector3[] _initialPosition;
+
+        private void Awake()
         {
-            if (enemies[i] != null)
+            //Save the initial positions of the enemies
+            _initialPosition = new Vector3[enemies.Length];
+            for (var i = 0; i < enemies.Length; i++)
             {
-                _initialPosition[i] = enemies[i].transform.position;
+                if (enemies[i] != null)
+                {
+                    _initialPosition[i] = enemies[i].transform.position;
+                }
             }
         }
-    }
-    public void ActivateRoom(bool status)
-    {
-        //Activate/deactivate enemies
-        for (var i = 0; i < enemies.Length; i++)
+
+        public void ActivateRoom(bool status)
         {
-            if (enemies[i] == null) continue;
-            enemies[i].SetActive(status);
-            enemies[i].transform.position = _initialPosition[i];
+            //Activate/deactivate enemies
+            for (var i = 0; i < enemies.Length; i++)
+            {
+                if (enemies[i] == null) continue;
+                enemies[i].SetActive(status);
+                enemies[i].transform.position = _initialPosition[i];
+            }
         }
     }
 }

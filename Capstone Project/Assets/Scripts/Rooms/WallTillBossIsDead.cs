@@ -1,22 +1,25 @@
 using UnityEngine;
 
-public class WallTillBossIsDead : MonoBehaviour
+namespace Rooms
 {
-    [SerializeField] private Health.Health enemy;
-    [SerializeField] private Transform thisObject;
-    private Health.Health _health;
-
-    private void Awake()
+    public class WallTillBossIsDead : MonoBehaviour
     {
-        _health = enemy.GetComponent<Health.Health>();
-    }
+        [SerializeField] private Health.Health enemy;
+        [SerializeField] private Transform thisObject;
+        private Health.Health _health;
 
-    private void Update()
-    {
-        var enemyHealth = _health.currentHealth;
-        if (enemyHealth <= 0)
+        private void Awake()
         {
-            thisObject.gameObject.SetActive(false);
+            _health = enemy.GetComponent<Health.Health>();
+        }
+
+        private void Update()
+        {
+            var enemyHealth = _health.currentHealth;
+            if (enemyHealth <= 0)
+            {
+                thisObject.gameObject.SetActive(false);
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 using Core;
+using Player;
 using UnityEngine;
 
 namespace Health
@@ -13,7 +14,8 @@ namespace Health
             if (!collision.CompareTag("Player")) return;
             SoundManager.Instance.PlaySound(pickupSound);
             collision.GetComponent<PlayerHealth>().startingHealth += 1;
-            collision.GetComponent<PlayerHealth>().currentHealth = collision.GetComponent<PlayerHealth>().startingHealth;
+            collision.GetComponent<PlayerHealth>().currentHealth =
+                collision.GetComponent<PlayerHealth>().startingHealth;
             gameObject.SetActive(false);
         }
     }

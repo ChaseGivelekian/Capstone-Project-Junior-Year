@@ -1,13 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ThanksUI : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Health.Health bossHealth;
-    [SerializeField] private Text thanksUI;
-
-    private void Update()
+    public class ThanksUI : MonoBehaviour
     {
-        thanksUI.enabled = bossHealth.currentHealth <= 0;
+        [SerializeField] private Health.Health bossHealth;
+        [SerializeField] private Text thanksUI;
+
+        private void Update()
+        {
+            thanksUI.enabled = bossHealth.currentHealth <= 0;
+        }
     }
 }

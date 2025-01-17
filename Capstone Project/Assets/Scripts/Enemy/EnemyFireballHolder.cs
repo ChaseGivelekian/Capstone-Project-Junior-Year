@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class EnemyFireballHolder : MonoBehaviour
+namespace Enemy
 {
-    [SerializeField] private Transform enemy;
-
-    private void Update()
+    public class EnemyFireballHolder : MonoBehaviour
     {
-        transform.localScale = enemy.localScale;
+        [SerializeField] private Transform enemy;
+
+        private void Update()
+        {
+            transform.localScale = enemy.localScale;
+        }
     }
 }

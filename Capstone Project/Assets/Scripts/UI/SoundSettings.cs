@@ -2,35 +2,38 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SoundSettings : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Slider soundSlider;
-    [SerializeField] private AudioMixer masterMixer;
-
-    private void Start()
+    public class SoundSettings : MonoBehaviour
     {
-        SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 100));
-    }
+        [SerializeField] private Slider soundSlider;
+        [SerializeField] private AudioMixer masterMixer;
 
-    private void SetVolume(float value)
-    {
-        if (value < 1)
+        private void Start()
         {
-            value = .001f;
+            SetVolume(PlayerPrefs.GetFloat("SavedMasterVolume", 100));
         }
 
-        RefreshSlider(value);
-        PlayerPrefs.SetFloat("SavedMasterVolume", value);
-        masterMixer.SetFloat("MasterVolume", Mathf.Log10(value / 100) * 20f);
-    }
+        private void SetVolume(float value)
+        {
+            if (value < 1)
+            {
+                value = .001f;
+            }
 
-    public void SetVolumeFromSlider()
-    {
-        SetVolume(soundSlider.value);
-    }
+            RefreshSlider(value);
+            PlayerPrefs.SetFloat("SavedMasterVolume", value);
+            masterMixer.SetFloat("MasterVolume", Mathf.Log10(value / 100) * 20f);
+        }
 
-    private void RefreshSlider(float value)
-    {
-        soundSlider.value = value;
+        public void SetVolumeFromSlider()
+        {
+            SetVolume(soundSlider.value);
+        }
+
+        private void RefreshSlider(float value)
+        {
+            soundSlider.value = value;
+        }
     }
 }

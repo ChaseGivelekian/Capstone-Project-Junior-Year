@@ -1,67 +1,73 @@
 using Core;
+using Rooms;
+using UI;
 using UnityEngine;
 
-public class PlayerRespawn1 : MonoBehaviour
+namespace Player
 {
-    private static readonly int Appear = Animator.StringToHash("appear");
-    [SerializeField] private AudioClip checkpointSound; //Sound that plays when getting a new checkpoint
-    [SerializeField] public Transform target;
-    [SerializeField] public Health.Health[] enemiesHealth;
-    private Transform _currentCheckpoint; //Stores the last checkpoint here
-    private PlayerHealth _playerHealth;
-    private UIManager _uiManager;
-    public CameraController cameraController;
-    public DoorToBoss doorToBoss;
-
-    private void Awake()
+    public class PlayerRespawn1 : MonoBehaviour
     {
-        _playerHealth = GetComponent<PlayerHealth>();
-        _uiManager = FindObjectOfType<UIManager>();
-        target.GetComponent<PlayerFloating>().enabled = false;
-        GetComponent<Animator>();
-        if (Camera.main != null) cameraController = Camera.main.GetComponent<CameraController>();
-        // doorToBoss = doorToBoss.GetComponent<DoorToBoss>().bossCam;
-    }
+        private static readonly int Appear = Animator.StringToHash("appear");
+        [SerializeField] private AudioClip checkpointSound; //Sound that plays when getting a new checkpoint
+        [SerializeField] public Transform target;
+        [SerializeField] public Health.Health[] enemiesHealth;
+        private Transform _currentCheckpoint; //Stores the last checkpoint here
+        private PlayerHealth _playerHealth;
+        private UIManager _uiManager;
+        public CameraController cameraController;
+        public DoorToBoss doorToBoss;
 
-    public void CheckRespawn()
-    {
-        //Check if check point available
-        if (_currentCheckpoint == null)
+        private void Awake()
         {
-            //Show game over screen
-            _uiManager.GameOver();
-
-            return; //Don't execute the rest of this function
+            _playerHealth = GetComponent<PlayerHealth>();
+            _uiManager = FindObjectOfType<UIManager>();
+            target.GetComponent<PlayerFloating>().enabled = false;
+            GetComponent<Animator>();
+            if (Camera.main != null) cameraController = Camera.main.GetComponent<CameraController>();
+            // doorToBoss = doorToBoss.GetComponent<DoorToBoss>().bossCam;
         }
 
-        foreach (var enemy in enemiesHealth)
+        public void CheckRespawn()
         {
-            enemy.GetComponent<Health.Health>().currentHealth = enemy.GetComponent<Health.Health>().startingHealth;
+            //Check if check point available
+            if (_currentCheckpoint == null)
+            {
+                //Show game over screen
+                _uiManager.GameOver();
+
+                return; //Don't execute the rest of this function
+            }
+
+            foreach (var enemy in enemiesHealth)
+            {
+                enemy.GetComponent<Health.Health>().currentHealth = enemy.GetComponent<Health.Health>().startingHealth;
+            }
+
+            transform.position = _currentCheckpoint.position; //Move player to checkpoint position
+            _playerHealth.Respawn(); //Restore player health and reset animation
+
+            //Move camera to checkpoint room (**for this to work the checkpoint objects have to be placed as a child of the room object)
+            // Debug.Log(CameraController);
+
+            if (doorToBoss != null)
+            {
+                if (doorToBoss.GetComponent<DoorToBoss>().defaultCam.enabled != true) return;
+                cameraController.MoveToNewRoom(_currentCheckpoint.parent);
+            }
+            else
+            {
+                cameraController.MoveToNewRoom(_currentCheckpoint.parent);
+            }
         }
-        transform.position = _currentCheckpoint.position; //Move player to checkpoint position
-        _playerHealth.Respawn(); //Restore player health and reset animation
 
-        //Move camera to checkpoint room (**for this to work the checkpoint objects have to be placed as a child of the room object)
-        // Debug.Log(CameraController);
-
-        if (doorToBoss != null)
+        //Activate checkpoints
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (doorToBoss.GetComponent<DoorToBoss>().defaultCam.enabled != true) return;
-            cameraController.MoveToNewRoom(_currentCheckpoint.parent);
+            if (!collision.gameObject.CompareTag("Checkpoint")) return;
+            _currentCheckpoint = collision.transform; //Store the checkpoint that we activated as the current one
+            SoundManager.Instance.PlaySound(checkpointSound);
+            collision.GetComponent<Collider2D>().enabled = false; //Deactivate checkpoint collider
+            collision.GetComponent<Animator>().SetTrigger(Appear); //Trigger checkpoint animation
         }
-        else
-        {
-            cameraController.MoveToNewRoom(_currentCheckpoint.parent);
-        }
-
-    }
-    //Activate checkpoints
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.gameObject.CompareTag("Checkpoint")) return;
-        _currentCheckpoint = collision.transform; //Store the checkpoint that we activated as the current one
-        SoundManager.Instance.PlaySound(checkpointSound);
-        collision.GetComponent<Collider2D>().enabled = false; //Deactivate checkpoint collider
-        collision.GetComponent<Animator>().SetTrigger(Appear); //Trigger checkpoint animation
     }
 }

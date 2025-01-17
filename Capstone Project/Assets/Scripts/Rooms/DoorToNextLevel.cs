@@ -1,15 +1,20 @@
+using Player;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DoorToNextLevel : MonoBehaviour
+namespace Rooms
 {
-    [SerializeField] private PlayerHealth player;
-    private float _persistantHealth;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class DoorToNextLevel : MonoBehaviour
     {
-        if (!collision.CompareTag("Player")) return;
-        _persistantHealth = player.GetComponent<PlayerHealth>().startingHealth;
-        PlayerPrefs.SetFloat("persistantHealth", _persistantHealth);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        [SerializeField] private PlayerHealth player;
+        private float _persistantHealth;
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!collision.CompareTag("Player")) return;
+            _persistantHealth = player.GetComponent<PlayerHealth>().startingHealth;
+            PlayerPrefs.SetFloat("persistantHealth", _persistantHealth);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        }
     }
 }

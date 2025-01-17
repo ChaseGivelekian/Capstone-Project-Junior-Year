@@ -13,7 +13,7 @@ namespace Core
             _soundSource = GetComponent<AudioSource>();
             _musicSource = transform.GetChild(0).GetComponent<AudioSource>();
 
-            //Keep this object even when we go to new scene
+            //Keep this object even when we go to a new scene
             if (Instance == null)
             {
                 Instance = this;
@@ -29,21 +29,25 @@ namespace Core
             ChangeMusicVolume(0);
             ChangeSoundVolume(0);
         }
+
         public void PlaySound(AudioClip sound)
         {
             _soundSource.PlayOneShot(sound);
         }
+
         public void ChangeSoundVolume(float change)
         {
             ChangeSourceVolume(1, "soundVolume", change, _soundSource);
         }
+
         public void ChangeMusicVolume(float change)
         {
             ChangeSourceVolume(.3f, "musicVolume", change, _musicSource);
         }
+
         private static void ChangeSourceVolume(float baseVolume, string volumeName, float change, AudioSource source)
         {
-            //Get initial value of volume and change it
+            //Get the initial value of volume and change it
             var currentVolume = PlayerPrefs.GetFloat(volumeName, 1);
             currentVolume += change;
 

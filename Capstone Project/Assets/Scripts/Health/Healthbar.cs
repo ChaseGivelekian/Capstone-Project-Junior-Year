@@ -1,9 +1,10 @@
+using Player;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Health
 {
-    public class Healthbar : MonoBehaviour
+    public class HealthBar : MonoBehaviour
     {
         [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] private Image totalhealthBar;

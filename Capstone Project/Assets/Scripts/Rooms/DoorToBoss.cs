@@ -1,33 +1,36 @@
 using UnityEngine;
 
-public class DoorToBoss : MonoBehaviour
+namespace Rooms
 {
-    [SerializeField] private Transform door;
-    [SerializeField] private Transform player;
-    [SerializeField] public Camera defaultCam;
-    [SerializeField] public Camera bossCam;
-    private Transform _transform;
-    private Transform _transform1;
-
-    private void Awake()
+    public class DoorToBoss : MonoBehaviour
     {
-        _transform1 = door.GetComponent<Transform>();
-        _transform = player.GetComponent<Transform>();
-    }
+        [SerializeField] private Transform door;
+        [SerializeField] private Transform player;
+        [SerializeField] public Camera defaultCam;
+        [SerializeField] public Camera bossCam;
+        private Transform _transform;
+        private Transform _transform1;
 
-    private void Update()
-    {
-        player = _transform;
-        door = _transform1;
-        if (player.position.x > door.position.x)
+        private void Awake()
         {
-            defaultCam.enabled = false;
-            bossCam.enabled = true;
+            _transform1 = door.GetComponent<Transform>();
+            _transform = player.GetComponent<Transform>();
         }
-        else
+
+        private void Update()
         {
-            defaultCam.enabled = true;
-            bossCam.enabled = false;
+            player = _transform;
+            door = _transform1;
+            if (player.position.x > door.position.x)
+            {
+                defaultCam.enabled = false;
+                bossCam.enabled = true;
+            }
+            else
+            {
+                defaultCam.enabled = true;
+                bossCam.enabled = false;
+            }
         }
     }
 }

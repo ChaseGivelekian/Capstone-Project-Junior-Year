@@ -9,22 +9,21 @@ namespace Health
         private static readonly int Hurt = Animator.StringToHash("hurt");
         private static readonly int Die = Animator.StringToHash("die");
 
-        [Header("Health")]
-        [SerializeField] public float startingHealth;
+        [Header("Health")] [SerializeField] public float startingHealth;
         public float currentHealth;
         private Animator _anim;
         private bool _dead;
 
-        [Header("iFrames")]
-        [SerializeField] private float iFramesDuration;
+        [Header("iFrames")] [SerializeField] private float iFramesDuration;
         [SerializeField] private int numberOfFlashes;
         private SpriteRenderer _spriteRend;
 
-        [Header("Components")]
-        [SerializeField] private Behaviour[] components;
+        [Header("Components")] [SerializeField]
+        private Behaviour[] components;
 
-        [Header("Death Sound")]
-        [SerializeField] private AudioClip deathSound;
+        [Header("Death Sound")] [SerializeField]
+        private AudioClip deathSound;
+
         [SerializeField] private AudioClip hurtSound;
 
         private void Awake()
@@ -61,10 +60,12 @@ namespace Health
                 SoundManager.Instance.PlaySound(deathSound);
             }
         }
+
         public void AddHealth(float value)
         {
             currentHealth = Mathf.Clamp(currentHealth + value, 0, startingHealth);
         }
+
         public void Respawn()
         {
             AddHealth(startingHealth);
@@ -78,6 +79,7 @@ namespace Health
                 component.enabled = true;
             }
         }
+
         private IEnumerator Invulnerability()
         {
             Physics2D.IgnoreLayerCollision(10, 11, true);
@@ -88,8 +90,10 @@ namespace Health
                 _spriteRend.color = Color.white;
                 yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
             }
+
             Physics2D.IgnoreLayerCollision(10, 11, false);
         }
+
         private void Deactivate()
         {
             gameObject.SetActive(false);

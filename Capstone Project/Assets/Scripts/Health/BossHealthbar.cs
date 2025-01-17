@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Health
 {
-    public class BossHealthbar : MonoBehaviour
+    public class BossHealthBar : MonoBehaviour
     {
         [SerializeField] private Transform door;
         [SerializeField] private Transform player;

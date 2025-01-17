@@ -1,19 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+namespace UI
 {
-    public void PlayGame()
+    public class MainMenu : MonoBehaviour
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        Time.timeScale = 1;
-    }
-    public void QuitGame()
-    {
-        PlayerPrefs.DeleteKey("persistantHealth");
-        Application.Quit(); //Quits the game (only works in build)
+        public void PlayGame()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            Time.timeScale = 1;
+        }
+
+        public void QuitGame()
+        {
+            PlayerPrefs.DeleteKey("persistantHealth");
+            Application.Quit(); //Quits the game (only works in build)
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false; //Exits play mode
+            UnityEditor.EditorApplication.isPlaying = false; //Exits play mode
 #endif
+        }
     }
 }

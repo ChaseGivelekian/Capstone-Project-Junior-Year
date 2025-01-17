@@ -1,52 +1,57 @@
-using Unity.VisualScripting;
+using Player;
 using UnityEngine;
 
-public class EnemySideways : MonoBehaviour
+namespace Traps
 {
-    [SerializeField] private float movementDistance;
-    [SerializeField] private float speed;
-    [SerializeField] private float damage;
-    private bool _movingLeft;
-    private float _leftEdge;
-    private float _rightEdge;
-
-    private void Awake()
+    public class EnemySideways : MonoBehaviour
     {
-        _leftEdge = transform.position.x - movementDistance;
-        _rightEdge = transform.position.x + movementDistance;
-    }
+        [SerializeField] private float movementDistance;
+        [SerializeField] private float speed;
+        [SerializeField] private float damage;
+        private bool _movingLeft;
+        private float _leftEdge;
+        private float _rightEdge;
 
-    private void Update()
-    {
-        if (_movingLeft)
+        private void Awake()
         {
-            if (transform.position.x > _leftEdge)
+            _leftEdge = transform.position.x - movementDistance;
+            _rightEdge = transform.position.x + movementDistance;
+        }
+
+        private void Update()
+        {
+            if (_movingLeft)
             {
-                transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, transform.position.y, transform.position.z);
+                if (transform.position.x > _leftEdge)
+                {
+                    transform.position = new Vector3(transform.position.x - speed * Time.deltaTime,
+                        transform.position.y, transform.position.z);
+                }
+                else
+                {
+                    _movingLeft = false;
+                }
             }
             else
             {
-                _movingLeft = false;
+                if (transform.position.x < _rightEdge)
+                {
+                    transform.position = new Vector3(transform.position.x + speed * Time.deltaTime,
+                        transform.position.y, transform.position.z);
+                }
+                else
+                {
+                    _movingLeft = true;
+                }
             }
         }
-        else
-        {
-            if (transform.position.x < _rightEdge)
-            {
-                transform.position = new Vector3(transform.position.x + speed * Time.deltaTime, transform.position.y, transform.position.z);
-            }
-            else
-            {
-                _movingLeft = true;
-            }
-        }
-    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            collision.GetComponent<PlayerHealth>().TakeDamage(damage);
+            if (collision.CompareTag("Player"))
+            {
+                collision.GetComponent<PlayerHealth>().TakeDamage(damage);
+            }
         }
     }
 }

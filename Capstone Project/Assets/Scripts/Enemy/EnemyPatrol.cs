@@ -1,75 +1,81 @@
 using UnityEngine;
 
-public class EnemyPatrol : MonoBehaviour
+namespace Enemy
 {
-    private static readonly int Moving = Animator.StringToHash("moving");
-
-    [Header("Patrol Points")]
-    [SerializeField] private Transform leftEdge;
-    [SerializeField] private Transform rightEdge;
-
-    [Header("Enemy")]
-    [SerializeField] private Transform enemy;
-
-    [Header("Movement parameters")]
-    [SerializeField] private float speed;
-    private Vector3 _initScale;
-    private bool _movingLeft;
-
-    [Header("Idle Behaviour")]
-    [SerializeField] private float idleDuration;
-    private float _idleTimer;
-
-    [Header("Enemy Animator")]
-    [SerializeField] private Animator anim;
-
-    private void Awake()
+    public class EnemyPatrol : MonoBehaviour
     {
-        _initScale = enemy.localScale;
-    }
-    private void OnDisable()
-    {
-        anim.SetBool(Moving, false);
-    }
+        private static readonly int Moving = Animator.StringToHash("moving");
 
-    private void Update()
-    {
-        if (_movingLeft)
+        [Header("Patrol Points")] [SerializeField]
+        private Transform leftEdge;
+
+        [SerializeField] private Transform rightEdge;
+
+        [Header("Enemy")] [SerializeField] private Transform enemy;
+
+        [Header("Movement parameters")] [SerializeField]
+        private float speed;
+
+        private Vector3 _initScale;
+        private bool _movingLeft;
+
+        [Header("Idle Behaviour")] [SerializeField]
+        private float idleDuration;
+
+        private float _idleTimer;
+
+        [Header("Enemy Animator")] [SerializeField]
+        private Animator anim;
+
+        private void Awake()
         {
-            if (enemy.position.x >= leftEdge.position.x)
-                MoveInDirection(-1);
-            else
-                DirectionChange();
+            _initScale = enemy.localScale;
         }
-        else
+
+        private void OnDisable()
         {
-            if (enemy.position.x <= rightEdge.position.x)
-                MoveInDirection(1);
-            else
-                DirectionChange();
+            anim.SetBool(Moving, false);
         }
-    }
 
-    private void DirectionChange()
-    {
-        anim.SetBool(Moving, false);
-        _idleTimer += Time.deltaTime;
+        private void Update()
+        {
+            if (_movingLeft)
+            {
+                if (enemy.position.x >= leftEdge.position.x)
+                    MoveInDirection(-1);
+                else
+                    DirectionChange();
+            }
+            else
+            {
+                if (enemy.position.x <= rightEdge.position.x)
+                    MoveInDirection(1);
+                else
+                    DirectionChange();
+            }
+        }
 
-        if (_idleTimer > idleDuration)
-            _movingLeft = !_movingLeft;
-    }
+        private void DirectionChange()
+        {
+            anim.SetBool(Moving, false);
+            _idleTimer += Time.deltaTime;
 
-    private void MoveInDirection(int direction)
-    {
-        _idleTimer = 0;
-        anim.SetBool(Moving, true);
+            if (_idleTimer > idleDuration)
+                _movingLeft = !_movingLeft;
+        }
 
-        //Make enemy face direction
-        enemy.localScale = new Vector3(Mathf.Abs(_initScale.x) * -direction,
-            _initScale.y, _initScale.z);
+        private void MoveInDirection(int direction)
+        {
+            _idleTimer = 0;
+            anim.SetBool(Moving, true);
 
-        //Move in that direction
-        enemy.position = new Vector3(enemy.position.x + Time.deltaTime * direction * speed,
-            enemy.position.y, enemy.position.z);
+            //Make enemy face direction
+            enemy.localScale = new Vector3(Mathf.Abs(_initScale.x) * -direction,
+                _initScale.y, _initScale.z);
+
+            //Move in that direction
+            enemy.position = new Vector3(enemy.position.x + Time.deltaTime * direction * speed,
+                enemy.position.y, enemy.position.z);
+        }
     }
 }

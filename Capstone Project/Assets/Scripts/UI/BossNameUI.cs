@@ -1,33 +1,36 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BossNameUI : MonoBehaviour
+namespace UI
 {
-    [SerializeField] private Transform door;
-    [SerializeField] private Transform player;
-    [SerializeField] private Health.Health bossHealth;
-    [SerializeField] private Text bossName;
-    private Transform _transform;
-    private Transform _transform1;
-
-    private void Awake()
+    public class BossNameUI : MonoBehaviour
     {
-        _transform1 = door.GetComponent<Transform>();
-        _transform = player.GetComponent<Transform>();
-    }
+        [SerializeField] private Transform door;
+        [SerializeField] private Transform player;
+        [SerializeField] private Health.Health bossHealth;
+        [SerializeField] private Text bossName;
+        private Transform _transform;
+        private Transform _transform1;
 
-    private void Update()
-    {
-        player = _transform;
-        door = _transform1;
-
-        if (bossHealth.currentHealth <= 0 || player.position.x <= door.position.x)
+        private void Awake()
         {
-            bossName.enabled = false;
+            _transform1 = door.GetComponent<Transform>();
+            _transform = player.GetComponent<Transform>();
         }
-        else
+
+        private void Update()
         {
-            bossName.enabled = true;
+            player = _transform;
+            door = _transform1;
+
+            if (bossHealth.currentHealth <= 0 || player.position.x <= door.position.x)
+            {
+                bossName.enabled = false;
+            }
+            else
+            {
+                bossName.enabled = true;
+            }
         }
     }
 }

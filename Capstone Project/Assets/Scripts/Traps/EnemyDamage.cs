@@ -1,12 +1,16 @@
+using Player;
 using UnityEngine;
 
-public class EnemyDamage : MonoBehaviour
+namespace Traps
 {
-    [SerializeField] protected float damage;
-
-    protected void OnTriggerEnter2D(Collider2D collision)
+    public class EnemyDamage : MonoBehaviour
     {
-        if (collision.CompareTag("Player"))
-            collision.GetComponent<PlayerHealth>().TakeDamage(damage);
+        [SerializeField] protected float damage;
+
+        protected void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.CompareTag("Player"))
+                collision.GetComponent<PlayerHealth>().TakeDamage(damage);
+        }
     }
 }
